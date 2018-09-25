@@ -15,6 +15,7 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
+                        <slot></slot>
                     </ul>
                 </div>
             </div>
