@@ -14012,8 +14012,8 @@ window.Vue = __webpack_require__(37);
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('examplo', __webpack_require__(51));
 Vue.component('topo', __webpack_require__(43));
+Vue.component('painel', __webpack_require__(51));
 
 var app = new Vue({
   el: '#app'
@@ -47481,7 +47481,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources/js/components/Examplo.vue"
+Component.options.__file = "resources/js/components/Painel.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -47490,9 +47490,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-643c60d9", Component.options)
+    hotAPI.createRecord("data-v-dd690cb0", Component.options)
   } else {
-    hotAPI.reload("data-v-643c60d9", Component.options)
+    hotAPI.reload("data-v-dd690cb0", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -47518,17 +47518,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    mounted: function mounted() {
-        console.log('Component mounted.');
-    }
+    props: ['titulo']
 });
 
 /***/ }),
@@ -47539,38 +47531,19 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "card card-default" }, [
+    _c("div", { staticClass: "card-header" }, [_vm._v(_vm._s(_vm.titulo))]),
+    _vm._v(" "),
+    _c("div", { staticClass: "card-body" }, [_vm._t("default")], 2)
+  ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "row justify-content-center" }, [
-        _c("div", { staticClass: "col-md-8" }, [
-          _c("div", { staticClass: "card card-default" }, [
-            _c("div", { staticClass: "card-header" }, [
-              _vm._v("Example Component")
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "card-body" }, [
-              _vm._v(
-                "\n                    I'm an example component.\n                "
-              )
-            ])
-          ])
-        ])
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-643c60d9", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-dd690cb0", module.exports)
   }
 }
 
