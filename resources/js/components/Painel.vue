@@ -1,8 +1,8 @@
 <template>
-    <div class="card card-default">
-        <div class="card-header">{{ titulo }}</div>
+    <div v-bind:class="defineBorda">
+        <div v-bind:class="defineCor">{{ titulo }}</div>
 
-        <div class="card-body">
+        <div class="card-body ">
             <slot></slot>
         </div>
     </div>
@@ -10,6 +10,37 @@
 
 <script>
     export default {
-        props:['titulo']
+        props:['titulo', 'cor', 'borda'],
+        computed:{
+            defineCor: function(){
+                // return "card-header  " + (this.cor || "bg-default")
+                return "card-header " + (this.cor || "bg-default border-dark")
+            }
+            ,
+            defineBorda: function(){
+                return "card " + (this.borda || "border-dark text-secundary")
+            }
+        }
     }
 </script>
+
+<style>
+    .card > .bg-blue {
+        background-color: #0323c3 !important;
+        color: #f5f5f5;
+    }
+
+    .border-blue {
+        border-color:#0323c3 !important;
+    }
+
+    .card > .bg-orange {
+        background-color: #c96b00 !important;
+        color: #f5f5f5;
+    }
+
+    .border-orange {
+        border-color:#c96b00 !important;
+    }
+    
+</style>
