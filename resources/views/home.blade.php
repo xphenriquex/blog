@@ -9,19 +9,19 @@
 
                     <div class="row">
                         <div class="col-md-4">
-                            <painel titulo="Conteúdo 1">
+                            <painel titulo="Conteúdo 1" cor="bg-orange" borda="border-orange">
                                 Teste de conteúdo..
                             </painel>        
                         </div>
 
                         <div class="col-md-4">
-                            <painel titulo="Conteúdo 2">
+                            <painel titulo="Conteúdo 2" cor="bg-blue" borda="border-blue">
                                 Teste de conteúdo..
                             </painel>        
                         </div>
 
                         <div class="col-md-4">
-                            <painel titulo="Conteúdo 3">
+                            <painel titulo="Conteúdo 3" cor="bg-info">
                                 Teste de conteúdo..
                             </painel>        
                         </div>
