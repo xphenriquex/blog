@@ -17,7 +17,7 @@
 
 <script>
     export default {
-        
+    
     }
 </script>
 
@@ -32,6 +32,11 @@
         display: block;
         margin-bottom: 20px;
         box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+        color: #fff;
+    }
+
+    .small-box:hover {
+        text-decoration: none;
     }
 
     .small-box > .inner {
@@ -50,7 +55,6 @@
         padding: 0;
     }
     
-
     .small-box p {
         font-size: 15px;
     }
@@ -71,6 +75,10 @@
         color: rgba(0,0,0,0.15);
     }
     
+    .small-box:hover .icon {
+        font-size: 95px;
+    }
+    
     .small-box > .small-box-footer {
         position: relative;
         text-align: center;
@@ -82,5 +90,12 @@
         background: rgba(0,0,0,0.1);
         text-decoration: none;
     }
+
+    .small-box > .small-box-footer:hover {
+        color: #fff;
+        background: rgba(0,0,0,0.15);
+    }
+    
+
 
 </style>
