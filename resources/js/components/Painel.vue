@@ -13,7 +13,6 @@
         props:['titulo', 'cor', 'borda'],
         computed:{
             defineCor: function(){
-                // return "card-header  " + (this.cor || "bg-default")
                 return "card-header " + (this.cor || "bg-default")
             }
             ,
