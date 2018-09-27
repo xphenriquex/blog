@@ -1,23 +1,28 @@
 <template>
-    <div class="small-box bg-aqua">
+    <div class="small-box" v-bind:style="defineCor">
         <div class="inner">
-            <h3>150</h3>
-            <p>New Orders</p>
+            <h3>{{ qtd }}</h3>
+            <p>{{ titulo }}</p>
         </div>
         
         <div class="icon">
-            <i class="ion ion-stats-bars"></i>
+            <i v-bind:class="icone"></i>
         </div>
 
-        <a href="#" class="small-box-footer">
-            More info <i class="fa fa-arrow-circle-right"></i>
+        <a v-bind:href="url" class="small-box-footer">
+            Ver mais <i class="fa fa-arrow-circle-right"></i>
         </a>
     </div>
 </template>
 
 <script>
     export default {
-    
+        props:['qtd', 'titulo', 'url' ,'cor', 'icone'],
+        computed:{
+            defineCor: function(){
+                return "background-color: " + this.cor + " !important;"
+            }
+        }
     }
 </script>
 
