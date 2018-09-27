@@ -9,19 +9,15 @@
 
                     <div class="row">
                         <div class="col-md-4">
-                            <caixa></caixa>      
+                            <caixa qtd="80" titulo="Artigo" url="#" cor="orange" icone="ion ion-pie-graph" ></caixa>      
                         </div>
 
                         <div class="col-md-4">
-                            <painel titulo="Conteúdo 2" cor="bg-blue" borda="border-blue">
-                                Teste de conteúdo..
-                            </painel>        
+                            <caixa qtd="1500" titulo="Usuários" url="#" cor="blue" icone="ion ion-person-stalker" ></caixa>      
                         </div>
 
                         <div class="col-md-4">
-                            <painel titulo="Conteúdo 3" cor="bg-orange" borda="border-orange">
-                                Teste de conteúdo..
-                            </painel>        
+                            <caixa qtd="3" titulo="Autores" url="#" cor="green" icone="ion ion-person" ></caixa>      
                         </div>
                     </div>
 
