@@ -47610,11 +47610,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     computed: {
         defineCor: function defineCor() {
             // return "card-header  " + (this.cor || "bg-default")
-            return "card-header " + (this.cor || "bg-default border-dark");
+            return "card-header " + (this.cor || "bg-default");
         },
 
         defineBorda: function defineBorda() {
-            return "card " + (this.borda || "border-dark text-secundary");
+            return "card " + (this.borda || "text-secundary");
         }
     }
 });
