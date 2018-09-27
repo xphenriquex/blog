@@ -20,9 +20,7 @@
                             <caixa qtd="3" titulo="Autores" url="#" cor="green" icone="ion ion-person" ></caixa>      
                         </div>
                     </div>
-
-
-
+                    
                 </painel>
             </div>
         </div>
