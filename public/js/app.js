@@ -48019,7 +48019,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 
-/* harmony default export */ __webpack_exports__["default"] = ({});
+/* harmony default export */ __webpack_exports__["default"] = ({
+    props: ['qtd', 'titulo', 'url', 'cor', 'icone'],
+    computed: {
+        defineCor: function defineCor() {
+            return "background-color: " + this.cor + " !important;";
+        }
+    }
+});
 
 /***/ }),
 /* 60 */
@@ -48029,31 +48036,22 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "small-box bg-aqua" }, [
-      _c("div", { staticClass: "inner" }, [
-        _c("h3", [_vm._v("150")]),
-        _vm._v(" "),
-        _c("p", [_vm._v("New Orders")])
-      ]),
+  return _c("div", { staticClass: "small-box", style: _vm.defineCor }, [
+    _c("div", { staticClass: "inner" }, [
+      _c("h3", [_vm._v(_vm._s(_vm.qtd))]),
       _vm._v(" "),
-      _c("div", { staticClass: "icon" }, [
-        _c("i", { staticClass: "ion ion-stats-bars" })
-      ]),
-      _vm._v(" "),
-      _c("a", { staticClass: "small-box-footer", attrs: { href: "#" } }, [
-        _vm._v("\n        More info "),
-        _c("i", { staticClass: "fa fa-arrow-circle-right" })
-      ])
+      _c("p", [_vm._v(_vm._s(_vm.titulo))])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "icon" }, [_c("i", { class: _vm.icone })]),
+    _vm._v(" "),
+    _c("a", { staticClass: "small-box-footer", attrs: { href: _vm.url } }, [
+      _vm._v("\n        Ver mais "),
+      _c("i", { staticClass: "fa fa-arrow-circle-right" })
     ])
-  }
-]
+  ])
+}
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
