@@ -9,9 +9,7 @@
 
                     <div class="row">
                         <div class="col-md-4">
-                            <painel titulo="Conteúdo 1" cor="bg-orange" borda="border-orange">
-                                Teste de conteúdo..
-                            </painel>        
+                            <caixa></caixa>      
                         </div>
 
                         <div class="col-md-4">
@@ -21,7 +19,7 @@
                         </div>
 
                         <div class="col-md-4">
-                            <painel titulo="Conteúdo 3" cor="bg-info">
+                            <painel titulo="Conteúdo 3" cor="bg-orange" borda="border-orange">
                                 Teste de conteúdo..
                             </painel>        
                         </div>
