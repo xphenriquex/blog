@@ -14,11 +14,11 @@
         computed:{
             defineCor: function(){
                 // return "card-header  " + (this.cor || "bg-default")
-                return "card-header " + (this.cor || "bg-default border-dark")
+                return "card-header " + (this.cor || "bg-default")
             }
             ,
             defineBorda: function(){
-                return "card " + (this.borda || "border-dark text-secundary")
+                return "card " + (this.borda || "text-secundary")
             }
         }
     }
