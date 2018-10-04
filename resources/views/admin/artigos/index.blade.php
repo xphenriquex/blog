@@ -5,7 +5,7 @@
         <painel titulo="Lista de artigos">
             <tabela-lista 
                 v-bind:titulos="['#', 'Título', 'Descrição']"
-                v-bind:itens="[[1, 'PHP OO', 'Curso de PHP OO'], [2, 'VUE JS', 'Curso de VUE JS']]"    
+                v-bind:itens="[['PHP OO', 'Curso de PHP OO'], ['VUE JS', 'Curso de VUE JS']]"    
                 
             ></tabela-lista>
         </painel>
