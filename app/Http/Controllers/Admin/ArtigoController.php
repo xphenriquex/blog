@@ -14,7 +14,7 @@ class ArtigoController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.artigos.index');
     }
 
     /**
