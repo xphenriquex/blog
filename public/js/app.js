@@ -48170,7 +48170,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             } else {
                 return "col-md-" + (parseInt(this.tamanho) + 1) + " col-md-offset-" + (12 - (parseInt(this.tamanho) + 1)) / 2;
             }
-            // return "col-md-4 col-md-offset-4";
         }
     }
 });
