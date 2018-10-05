@@ -48321,7 +48321,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    props: ['titulos', 'itens', 'criar', 'detalhe', 'editar', 'deletar', 'token'],
+    props: ['titulos', 'itens', 'criar', 'detalhe', 'editar', 'deletar', 'token', 'ordemColum', 'ordem'],
     data: function data() {
         return {
             buscar: ''
@@ -48337,6 +48337,34 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     computed: {
         lista: function lista() {
             var _this = this;
+
+            var ordem = this.ordem || "asc";
+            var ordemColum = this.ordemColum || 0;
+
+            ordem = ordem.toLowerCase();
+            ordemColum = parseInt(ordemColum);
+
+            if (ordem == "asc") {
+                this.itens.sort(function (a, b) {
+                    if (a[ordemColum] > b[ordemColum]) {
+                        return 1;
+                    };
+                    if (a[ordemColum] < b[ordemColum]) {
+                        return -1;
+                    };
+                    return 0;
+                });
+            } else {
+                this.itens.sort(function (a, b) {
+                    if (a[ordemColum] < b[ordemColum]) {
+                        return 1;
+                    };
+                    if (a[ordemColum] > b[ordemColum]) {
+                        return -1;
+                    };
+                    return 0;
+                });
+            }
 
             return this.itens.filter(function (res) {
 
