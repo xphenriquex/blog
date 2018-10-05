@@ -19,7 +19,7 @@
         <table class="table table-striped table-hover">
             <thead>
                 <tr>
-                    <th scope="col" v-for="(titulo) in titulos">{{ titulo }}</th>
+                    <th scope="col"  v-for="titulo in titulos">{{ titulo }}</th>
                     <th v-if="detalhe || editar || deletar" scope="col">Ação</th>
                 </tr>
             </thead>
@@ -58,7 +58,7 @@
 
 <script>
     export default {
-        props:['titulos', 'itens', 'criar', 'detalhe', 'editar', 'deletar', 'token'],
+        props:['titulos', 'itens', 'criar', 'detalhe', 'editar', 'deletar', 'token', 'ordemColum', 'ordem'],
         data: function(){
             return {
                 buscar: ''
@@ -73,6 +73,27 @@
 
         computed: {
             lista: function(){
+                
+                let ordem =  this.ordem || "asc";
+                let ordemColum = this.ordemColum || 0;
+                
+                ordem = ordem.toLowerCase();
+                ordemColum = parseInt(ordemColum);
+
+                if(ordem == "asc"){
+                    this.itens.sort(function(a, b){
+                        if(a[ordemColum] > b[ordemColum]  ) { return 1 };
+                        if(a[ordemColum] < b[ordemColum]) { return -1 };
+                        return 0;
+                    });
+                }else{
+                    this.itens.sort(function(a, b){
+                        if(a[ordemColum] < b[ordemColum]  ) { return 1 };
+                        if(a[ordemColum] > b[ordemColum]) { return -1 };
+                        return 0;
+                    });
+                }
+
                 
                 return this.itens.filter(res => {
                     
