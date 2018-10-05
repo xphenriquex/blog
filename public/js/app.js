@@ -48312,25 +48312,29 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: ['titulos', 'itens', 'criar', 'detalhe', 'editar', 'deletar', 'token', 'ordemColum', 'ordem'],
     data: function data() {
         return {
-            buscar: ''
+            buscar: '',
+            ordemAux: this.ordem || "asc",
+            ordemColumAux: this.ordemColum || 0
         };
     },
 
     methods: {
         executaForm: function executaForm(index) {
             document.getElementById(index).submit();
+        },
+        ordernaColuna: function ordernaColuna(coluna) {
+            this.ordemColumAux = coluna;
+
+            if (this.ordemAux.toLowerCase() == "asc") {
+                this.ordemAux = "desc";
+            } else {
+                this.ordemAux = "asc";
+            }
         }
     },
 
@@ -48338,8 +48342,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         lista: function lista() {
             var _this = this;
 
-            var ordem = this.ordem || "asc";
-            var ordemColum = this.ordemColum || 0;
+            var ordem = this.ordemAux;
+            var ordemColum = this.ordemColumAux;
 
             ordem = ordem.toLowerCase();
             ordemColum = parseInt(ordemColum);
@@ -48426,10 +48430,20 @@ var render = function() {
         _c(
           "tr",
           [
-            _vm._l(_vm.titulos, function(titulo) {
-              return _c("th", { attrs: { scope: "col" } }, [
-                _vm._v(_vm._s(titulo))
-              ])
+            _vm._l(_vm.titulos, function(titulo, index) {
+              return _c(
+                "th",
+                {
+                  staticStyle: { cursor: "pointer" },
+                  attrs: { scope: "col" },
+                  on: {
+                    click: function($event) {
+                      _vm.ordernaColuna(index)
+                    }
+                  }
+                },
+                [_vm._v(_vm._s(titulo))]
+              )
             }),
             _vm._v(" "),
             _vm.detalhe || _vm.editar || _vm.deletar
