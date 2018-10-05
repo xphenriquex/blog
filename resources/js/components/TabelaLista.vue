@@ -9,17 +9,10 @@
             </div>
         </div>
 
-        <!-- <div class="row justify-content-between">
-            <a v-if="criar" class="col-2" v-bind:href="criar">Criar</a>
-            <div class="col-2">
-                <input type="search" class="form-control" placeholder="Buscar" >
-            </div>
-        </div> -->
-
         <table class="table table-striped table-hover">
             <thead>
                 <tr>
-                    <th scope="col"  v-for="titulo in titulos">{{ titulo }}</th>
+                    <th style="cursor:pointer" v-on:click="ordernaColuna(index)" scope="col"  v-for="(titulo, index) in titulos">{{ titulo }}</th>
                     <th v-if="detalhe || editar || deletar" scope="col">Ação</th>
                 </tr>
             </thead>
@@ -61,21 +54,32 @@
         props:['titulos', 'itens', 'criar', 'detalhe', 'editar', 'deletar', 'token', 'ordemColum', 'ordem'],
         data: function(){
             return {
-                buscar: ''
+                buscar: '',
+                ordemAux: this.ordem || "asc",
+                ordemColumAux: this.ordemColum || 0
             }
         },
         
         methods: {
             executaForm: function(index){
                 document.getElementById(index).submit();
+            },
+            ordernaColuna: function(coluna){
+                this.ordemColumAux = coluna;
+
+                if(this.ordemAux.toLowerCase() == "asc"){
+                    this.ordemAux = "desc";
+                }else{
+                    this.ordemAux = "asc";
+                }
             }
         },
 
         computed: {
             lista: function(){
                 
-                let ordem =  this.ordem || "asc";
-                let ordemColum = this.ordemColum || 0;
+                let ordem =  this.ordemAux;
+                let ordemColum = this.ordemColumAux;
                 
                 ordem = ordem.toLowerCase();
                 ordemColum = parseInt(ordemColum);
