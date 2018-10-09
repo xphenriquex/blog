@@ -16,10 +16,15 @@ class ArtigoController extends Controller
     {
         $listaPaginas = json_encode([
             ["titulo" => "Home", "url" => route('home')],
-            ["titulo" => "Lista de Artigos", "url" => ''],
+            ["titulo" => "Lista de comprar", "url" => ''],
         ]);
 
-        return view('admin.artigos.index', compact('listaPaginas'));
+        $listaArtigos = json_encode([
+            ["id" => 1, "titulo" => "PHP OO", "descricao" => "Curso de PHP OO"],
+            ["id" => 2, "titulo" => "VUE JS", "descricao" => "Curso de VUE JS"]
+        ]);
+
+        return view('admin.artigos.index', compact('listaPaginas', 'listaArtigos'));
     }
 
     /**
