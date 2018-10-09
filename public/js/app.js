@@ -48339,36 +48339,38 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
             if (ordem == "asc") {
                 this.itens.sort(function (a, b) {
-                    if (a[ordemColum] > b[ordemColum]) {
+                    if (Object.values(a)[ordemColum] > Object.values(b)[ordemColum]) {
                         return 1;
                     };
-                    if (a[ordemColum] < b[ordemColum]) {
+                    if (Object.values(a)[ordemColum] < Object.values(b)[ordemColum]) {
                         return -1;
                     };
                     return 0;
                 });
             } else {
                 this.itens.sort(function (a, b) {
-                    if (a[ordemColum] < b[ordemColum]) {
+                    if (Object.values(a)[ordemColum] < Object.values(b)[ordemColum]) {
                         return 1;
                     };
-                    if (a[ordemColum] > b[ordemColum]) {
+                    if (Object.values(a)[ordemColum] > Object.values(b)[ordemColum]) {
                         return -1;
                     };
                     return 0;
                 });
             }
 
-            return this.itens.filter(function (res) {
+            if (this.buscar) {
+                return this.itens.filter(function (res) {
 
-                for (var k = 0; k < res.length; k++) {
-                    if ((res[k] + "").toLowerCase().indexOf(_this.buscar.toLowerCase()) >= 0) {
-                        return true;
+                    for (var k = 0; k < res.length; k++) {
+                        if ((res[k] + "").toLowerCase().indexOf(_this.buscar.toLowerCase()) >= 0) {
+                            return true;
+                        }
                     }
-                }
 
-                return false;
-            });
+                    return false;
+                });
+            }
 
             return this.itens;
         }
