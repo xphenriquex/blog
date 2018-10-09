@@ -1,14 +1,10 @@
 <template>
-    
     <div>
-
         <div class="form-group">
-            <a v-if="criar" v-bind:href="criar">Criar</a>
             <div class="form-group float-right">
                 <input type="search" class="form-control" placeholder="Buscar" v-model="buscar">
             </div>
         </div>
-
         <table class="table table-striped table-hover">
             <thead>
                 <tr>
@@ -46,7 +42,6 @@
             </tbody>
         </table>
     </div>
-    
 </template>
 
 <script>
@@ -59,7 +54,6 @@
                 ordemColumAux: this.ordemColum || 0
             }
         },
-        
         methods: {
             executaForm: function(index){
                 document.getElementById(index).submit();
