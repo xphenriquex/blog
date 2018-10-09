@@ -14298,7 +14298,7 @@ function applyToTag (styleElement, obj) {
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(15);
-module.exports = __webpack_require__(71);
+module.exports = __webpack_require__(74);
 
 
 /***/ }),
@@ -14330,6 +14330,7 @@ Vue.component('tabela-lista', __webpack_require__(59));
 Vue.component('breadcrumb', __webpack_require__(62));
 Vue.component('modal', __webpack_require__(65));
 Vue.component('modal-link', __webpack_require__(68));
+Vue.component('formulario', __webpack_require__(71));
 
 var app = new Vue({
   el: '#app'
@@ -48301,11 +48302,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: ['titulos', 'itens', 'criar', 'detalhe', 'editar', 'deletar', 'token', 'ordemColum', 'ordem'],
@@ -48316,7 +48312,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             ordemColumAux: this.ordemColum || 0
         };
     },
-
     methods: {
         executaForm: function executaForm(index) {
             document.getElementById(index).submit();
@@ -48390,10 +48385,6 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", [
     _c("div", { staticClass: "form-group" }, [
-      _vm.criar
-        ? _c("a", { attrs: { href: _vm.criar } }, [_vm._v("Criar")])
-        : _vm._e(),
-      _vm._v(" "),
       _c("div", { staticClass: "form-group float-right" }, [
         _c("input", {
           directives: [
@@ -48944,6 +48935,143 @@ if (false) {
 
 /***/ }),
 /* 71 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(72)
+/* template */
+var __vue_template__ = __webpack_require__(73)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/js/components/Formulario.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-c3f6ecc6", Component.options)
+  } else {
+    hotAPI.reload("data-v-c3f6ecc6", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 72 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    props: ['method', 'action', 'ectype', 'css', 'token'],
+    data: function data() {
+        return {
+            alterMetodo: ""
+        };
+    },
+    computed: {
+        defineMetodo: function defineMetodo() {
+            if (this.method.toLowerCase() == 'post' || this.method.toLowerCase() == 'get') {
+                return this.method.toLowerCase();
+            }
+
+            if (this.method.toLowerCase() == "put") {
+                this.alterMetodo = "put";
+            }
+
+            if (this.method.toLowerCase() == "delete") {
+                this.alterMetodo = "delete";
+            }
+
+            return "post";
+        }
+    }
+});
+
+/***/ }),
+/* 73 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "form",
+    {
+      class: _vm.css,
+      attrs: {
+        method: _vm.defineMetodo,
+        action: _vm.action,
+        enctype: _vm.ectype
+      }
+    },
+    [
+      _vm.alterMetodo
+        ? _c("input", {
+            attrs: { type: "hidden", name: "_method" },
+            domProps: { value: _vm.alterMetodo }
+          })
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.token
+        ? _c("input", {
+            attrs: { type: "hidden", name: "_token" },
+            domProps: { value: _vm.token }
+          })
+        : _vm._e(),
+      _vm._v(" "),
+      _vm._t("default")
+    ],
+    2
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-c3f6ecc6", module.exports)
+  }
+}
+
+/***/ }),
+/* 74 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

@@ -23,6 +23,7 @@ Vue.component('tabela-lista', require('./components/TabelaLista.vue'));
 Vue.component('breadcrumb', require('./components/Breadcrumb.vue'));
 Vue.component('modal', require('./components/modal/Modal.vue'));
 Vue.component('modal-link', require('./components/modal/ModalLink.vue'));
+Vue.component('formulario', require('./components/Formulario.vue'));
 
 const app = new Vue({
     el: '#app'
