@@ -22,7 +22,7 @@ Vue.component('pagina', require('./components/Pagina.vue'));
 Vue.component('tabela-lista', require('./components/TabelaLista.vue'));
 Vue.component('breadcrumb', require('./components/Breadcrumb.vue'));
 Vue.component('modal', require('./components/modal/Modal.vue'));
-Vue.component('modal-Link', require('./components/modal/ModalLink.vue'));
+Vue.component('modal-link', require('./components/modal/ModalLink.vue'));
 
 const app = new Vue({
     el: '#app'
