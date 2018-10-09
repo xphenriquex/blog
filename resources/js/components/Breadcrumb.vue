@@ -12,10 +12,6 @@
 
 <script>
     export default {
-        props:['lista'], 
-        mounted: function() {
-            console.log(this.lista);
-            console.log(this.lista.length);
-        }
+        props:['lista'],
     }
 </script>
