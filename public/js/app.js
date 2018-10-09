@@ -48626,38 +48626,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: ['lista'],
-    data: function data() {
-        return {
-            teste: this.url
-        };
-    },
     mounted: function mounted() {
         console.log(this.lista);
         console.log(this.lista.length);
-    },
-    computed: {
-        defineClass: function defineClass() {
-
-            // return {
-            // }
-            // console.log(this.titulo);
-            if (this.titulo) {
-                return "breadcrumb-item active";
-            } else {
-                return "";
-            }
-        }
     }
 });
 
@@ -48673,9 +48647,16 @@ var render = function() {
     _c(
       "ol",
       { staticClass: "breadcrumb" },
-      [
-        _vm._l(_vm.lista, function(item) {
-          return _c("li", { class: _vm.defineClass }, [
+      _vm._l(_vm.lista, function(item) {
+        return _c(
+          "li",
+          {
+            class: {
+              "breadcrumb-item": item.url,
+              "breadcrumb-item active": !item.url
+            }
+          },
+          [
             item.url
               ? _c("a", { attrs: { href: item.url } }, [
                   _vm._v(_vm._s(item.titulo))
@@ -48683,19 +48664,9 @@ var render = function() {
               : _vm._e(),
             _vm._v(" "),
             !item.url ? _c("span", [_vm._v(_vm._s(item.titulo))]) : _vm._e()
-          ])
-        }),
-        _vm._v(" "),
-        _c(
-          "li",
-          {
-            staticClass: "breadcrumb-item active",
-            attrs: { "aria-current": "page" }
-          },
-          [_vm._v("Data")]
+          ]
         )
-      ],
-      2
+      })
     )
   ])
 }
