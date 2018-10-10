@@ -1,6 +1,8 @@
 <template>
     <div>
         <div class="form-group">
+            <a v-if="criar && !modal" v-bind:href="criar" >Criar</a>
+            <modal-link v-if="criar && modal" nome="adicionar" tipo="link" conteudo="Criar" css=""></modal-link>
             <div class="form-group float-right">
                 <input type="search" class="form-control" placeholder="Buscar" v-model="buscar">
             </div>
@@ -8,7 +10,8 @@
         <table class="table table-striped table-hover">
             <thead>
                 <tr>
-                    <th style="cursor:pointer" v-on:click="ordernaColuna(index)" scope="col"  v-for="(titulo, index) in titulos">{{ titulo }}</th>
+                    <th style="cursor:pointer" v-on:click="ordernaColuna(index)" scope="col"  
+                        v-for="(titulo, index) in titulos">{{ titulo }}</th>
                     <th v-if="detalhe || editar || deletar" scope="col">Ação</th>
                 </tr>
             </thead>
@@ -22,20 +25,34 @@
                                 <input type="hidden" name="_method" value="DELETE">
                                 <input type="hidden" name="_token" v-bind:value="token">
 
-                                <a v-if="detalhe" v-bind:href="detalhe">Detalhe |</a>
-                                <a v-if="editar" v-bind:href="editar"> Editar |</a>
+                                <a v-if="detalhe && !modal" v-bind:item="item" v-bind:href="detalhe">Detalhe |</a>
+                                <modal-link v-if="detalhe && modal" v-bind:item="item" nome="detalhe" tipo="link" conteudo="Detalhe |" css=""></modal-link>
+                                
+                                <a v-if="editar && !modal" v-bind:href="editar"> Editar |</a>
+                                <modal-link v-if="editar && modal" v-bind:item="item" nome="editar" tipo="link" conteudo="Editar |" css=""></modal-link>
+                                
                                 <a href="#" v-on:click="executaForm(index)">Deletar</a>
 
                             </form>
 
                             <span v-if="!token">
-                                <a v-if="detalhe" v-bind:href="detalhe">Detalhe |</a>
-                                <a v-if="editar" v-bind:href="editar"> Editar</a>  
+                                <a v-if="detalhe && !modal" v-bind:item="item" v-bind:href="detalhe">Detalhe |</a>
+                                <modal-link v-if="detalhe && modal" v-bind:item="item" nome="detalhe" tipo="link" conteudo="Detalhe |" css=""></modal-link>
+
+
+                                <a v-if="editar && !modal" v-bind:href="editar"> Editar |</a>
+                                <modal-link v-if="editar && modal" v-bind:item="item" nome="editar" tipo="link" conteudo="Editar |" css=""></modal-link>
                             </span>   
 
                             <span v-if="!token && !deletar">
-                                <a v-if="detalhe" v-bind:href="detalhe">Detalhe |</a>
-                                <a v-if="editar" v-bind:href="editar"> Editar</a>
+                                <a v-if="detalhe && !modal" v-bind:item="item" v-bind:href="detalhe">Detalhe |</a>
+                                <modal-link v-if="detalhe && modal" v-bind:item="item" nome="detalhe" tipo="link" conteudo="Detalhe |" css=""></modal-link>
+
+                                <a v-if="editar && !modal" v-bind:href="editar"> Editar |</a>
+                                <modal-link v-if="editar && modal" v-bind:item="item" nome="editar" tipo="link" conteudo="Editar |" css=""></modal-link>
+
+
+                                <modal-link v-if="editar && modal" nome="editar" tipo="link" conteudo="Editar |" css=""></modal-link>
                             </span>   
                         </td>
                     </tr>
@@ -46,7 +63,7 @@
 
 <script>
     export default {
-        props:['titulos', 'itens', 'criar', 'detalhe', 'editar', 'deletar', 'token', 'ordemColum', 'ordem'],
+        props:['titulos', 'itens', 'criar', 'detalhe', 'editar', 'deletar', 'token', 'ordemColum', 'ordem', 'modal'],
         data: function(){
             return {
                 buscar: '',
@@ -71,7 +88,7 @@
 
         computed: {
             lista: function(){
-                
+
                 let ordem =  this.ordemAux;
                 let ordemColum = this.ordemColumAux;
                 
@@ -80,13 +97,13 @@
 
                 if(ordem == "asc"){
                     this.itens.sort(function(a, b){
-                        if(Object.values(a)[ordemColum] > Object.values(b)[ordemColum]  ) { return 1 };
+                        if(Object.values(a)[ordemColum] > Object.values(b)[ordemColum]) { return 1 };
                         if(Object.values(a)[ordemColum] < Object.values(b)[ordemColum]) { return -1 };
                         return 0;
                     });
                 }else{
                     this.itens.sort(function(a, b){
-                        if(Object.values(a)[ordemColum] < Object.values(b)[ordemColum]  ) { return 1 };
+                        if(Object.values(a)[ordemColum] < Object.values(b)[ordemColum]) { return 1 };
                         if(Object.values(a)[ordemColum] > Object.values(b)[ordemColum]) { return -1 };
                         return 0;
                     });
