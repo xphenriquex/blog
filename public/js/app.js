@@ -14331,11 +14331,11 @@ Vue.use(__WEBPACK_IMPORTED_MODULE_0_vuex__["a" /* default */]);
 //Vuex
 var store = new __WEBPACK_IMPORTED_MODULE_0_vuex__["a" /* default */].Store({
     state: {
-        itens: { teste: "Opa funcionou" }
+        item: {}
     },
     mutations: {
-        setItens: function setItens(state, obj) {
-            state.itens = obj;
+        setItem: function setItem(state, obj) {
+            state.item = obj;
         }
     }
 });
@@ -48327,6 +48327,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: ['titulos', 'itens', 'criar', 'detalhe', 'editar', 'deletar', 'token', 'ordemColum', 'ordem', 'modal'],
@@ -48522,10 +48533,24 @@ var render = function() {
                               domProps: { value: _vm.token }
                             }),
                             _vm._v(" "),
-                            _vm.detalhe
-                              ? _c("a", { attrs: { href: _vm.detalhe } }, [
-                                  _vm._v("Detalhe |")
-                                ])
+                            _vm.detalhe && !_vm.modal
+                              ? _c(
+                                  "a",
+                                  { attrs: { item: item, href: _vm.detalhe } },
+                                  [_vm._v("Detalhe |")]
+                                )
+                              : _vm._e(),
+                            _vm._v(" "),
+                            _vm.detalhe && _vm.modal
+                              ? _c("modal-link", {
+                                  attrs: {
+                                    item: item,
+                                    nome: "detalhe",
+                                    tipo: "link",
+                                    conteudo: "Detalhe |",
+                                    css: ""
+                                  }
+                                })
                               : _vm._e(),
                             _vm._v(" "),
                             _vm.editar && !_vm.modal
@@ -48567,15 +48592,29 @@ var render = function() {
                       ? _c(
                           "span",
                           [
-                            _vm.detalhe
-                              ? _c("a", { attrs: { href: _vm.detalhe } }, [
-                                  _vm._v("Detalhe |")
-                                ])
+                            _vm.detalhe && !_vm.modal
+                              ? _c(
+                                  "a",
+                                  { attrs: { item: item, href: _vm.detalhe } },
+                                  [_vm._v("Detalhe |")]
+                                )
                               : _vm._e(),
                             _vm._v(" "),
-                            _vm.editar
+                            _vm.detalhe && _vm.modal
+                              ? _c("modal-link", {
+                                  attrs: {
+                                    item: item,
+                                    nome: "detalhe",
+                                    tipo: "link",
+                                    conteudo: "Detalhe |",
+                                    css: ""
+                                  }
+                                })
+                              : _vm._e(),
+                            _vm._v(" "),
+                            _vm.editar && !_vm.modal
                               ? _c("a", { attrs: { href: _vm.editar } }, [
-                                  _vm._v(" Editar")
+                                  _vm._v(" Editar |")
                                 ])
                               : _vm._e(),
                             _vm._v(" "),
@@ -48599,15 +48638,29 @@ var render = function() {
                       ? _c(
                           "span",
                           [
-                            _vm.detalhe
-                              ? _c("a", { attrs: { href: _vm.detalhe } }, [
-                                  _vm._v("Detalhe |")
-                                ])
+                            _vm.detalhe && !_vm.modal
+                              ? _c(
+                                  "a",
+                                  { attrs: { item: item, href: _vm.detalhe } },
+                                  [_vm._v("Detalhe |")]
+                                )
                               : _vm._e(),
                             _vm._v(" "),
-                            _vm.editar
+                            _vm.detalhe && _vm.modal
+                              ? _c("modal-link", {
+                                  attrs: {
+                                    item: item,
+                                    nome: "detalhe",
+                                    tipo: "link",
+                                    conteudo: "Detalhe |",
+                                    css: ""
+                                  }
+                                })
+                              : _vm._e(),
+                            _vm._v(" "),
+                            _vm.editar && !_vm.modal
                               ? _c("a", { attrs: { href: _vm.editar } }, [
-                                  _vm._v(" Editar")
+                                  _vm._v(" Editar |")
                                 ])
                               : _vm._e(),
                             _vm._v(" "),
@@ -48615,6 +48668,17 @@ var render = function() {
                               ? _c("modal-link", {
                                   attrs: {
                                     item: item,
+                                    nome: "editar",
+                                    tipo: "link",
+                                    conteudo: "Editar |",
+                                    css: ""
+                                  }
+                                })
+                              : _vm._e(),
+                            _vm._v(" "),
+                            _vm.editar && _vm.modal
+                              ? _c("modal-link", {
+                                  attrs: {
                                     nome: "editar",
                                     tipo: "link",
                                     conteudo: "Editar |",
@@ -48949,9 +49013,55 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    props: ['nome', 'tipo', 'conteudo', 'css']
+    props: ['nome', 'tipo', 'conteudo', 'css', 'item'],
+    methods: {
+        preencheFormulario: function preencheFormulario() {
+            this.$store.commit('setItem', this.item);
+        }
+    }
 });
 
 /***/ }),
@@ -48963,49 +49073,143 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("span", [
-    !_vm.tipo || (_vm.tipo != "button" && _vm.tipo != "link")
-      ? _c(
-          "button",
-          {
-            class: _vm.css || "btn btn-primary",
-            attrs: {
-              type: "button",
-              "data-toggle": "modal",
-              "data-target": "#" + _vm.nome
-            }
-          },
-          [_vm._v(_vm._s(_vm.conteudo))]
-        )
+    _vm.item
+      ? _c("span", [
+          !_vm.tipo || (_vm.tipo != "button" && _vm.tipo != "link")
+            ? _c(
+                "button",
+                {
+                  class: _vm.css || "btn btn-primary",
+                  attrs: {
+                    type: "button",
+                    "data-toggle": "modal",
+                    "data-target": "#" + _vm.nome
+                  },
+                  on: {
+                    click: function($event) {
+                      _vm.preencheFormulario()
+                    }
+                  }
+                },
+                [
+                  _vm._v(
+                    "\n                " + _vm._s(_vm.conteudo) + "\n        "
+                  )
+                ]
+              )
+            : _vm._e(),
+          _vm._v(" "),
+          !_vm.tipo || (_vm.tipo != "button" && _vm.tipo != "link")
+            ? _c(
+                "button",
+                {
+                  class: _vm.css || "btn btn-primary",
+                  attrs: {
+                    type: "button",
+                    "data-toggle": "modal",
+                    "data-target": "#" + _vm.nome
+                  },
+                  on: {
+                    click: function($event) {
+                      _vm.preencheFormulario()
+                    }
+                  }
+                },
+                [
+                  _vm._v(
+                    "\n                " + _vm._s(_vm.conteudo) + "\n        "
+                  )
+                ]
+              )
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.tipo == "link"
+            ? _c(
+                "a",
+                {
+                  class: _vm.css || "",
+                  attrs: {
+                    href: "#",
+                    "data-toggle": "modal",
+                    "data-target": "#" + _vm.nome
+                  },
+                  on: {
+                    click: function($event) {
+                      _vm.preencheFormulario()
+                    }
+                  }
+                },
+                [
+                  _vm._v(
+                    "\n                " + _vm._s(_vm.conteudo) + "\n        "
+                  )
+                ]
+              )
+            : _vm._e()
+        ])
       : _vm._e(),
     _vm._v(" "),
-    _vm.tipo == "button"
-      ? _c(
-          "button",
-          {
-            class: _vm.css || "btn btn-primary",
-            attrs: {
-              type: "button",
-              "data-toggle": "modal",
-              "data-target": "#" + _vm.nome
-            }
-          },
-          [_vm._v(_vm._s(_vm.conteudo))]
-        )
-      : _vm._e(),
-    _vm._v(" "),
-    _vm.tipo == "link"
-      ? _c(
-          "a",
-          {
-            class: _vm.css || "",
-            attrs: {
-              href: "#",
-              "data-toggle": "modal",
-              "data-target": "#" + _vm.nome
-            }
-          },
-          [_vm._v(_vm._s(_vm.conteudo))]
-        )
+    !_vm.item
+      ? _c("span", [
+          !_vm.tipo || (_vm.tipo != "button" && _vm.tipo != "link")
+            ? _c(
+                "button",
+                {
+                  class: _vm.css || "btn btn-primary",
+                  attrs: {
+                    type: "button",
+                    "data-toggle": "modal",
+                    "data-target": "#" + _vm.nome
+                  }
+                },
+                [
+                  _vm._v(
+                    "\n                " + _vm._s(_vm.conteudo) + "\n        "
+                  )
+                ]
+              )
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.tipo == "button"
+            ? _c(
+                "button",
+                {
+                  class: _vm.css || "btn btn-primary",
+                  attrs: {
+                    type: "button",
+                    "data-toggle": "modal",
+                    "data-target": "#" + _vm.nome
+                  }
+                },
+                [
+                  _vm._v(
+                    "\n                    " +
+                      _vm._s(_vm.conteudo) +
+                      "\n        "
+                  )
+                ]
+              )
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.tipo == "link"
+            ? _c(
+                "a",
+                {
+                  class: _vm.css || "",
+                  attrs: {
+                    href: "#",
+                    "data-toggle": "modal",
+                    "data-target": "#" + _vm.nome
+                  }
+                },
+                [
+                  _vm._v(
+                    "\n                " + _vm._s(_vm.conteudo) + "\n        "
+                  )
+                ]
+              )
+            : _vm._e()
+        ])
       : _vm._e()
   ])
 }
