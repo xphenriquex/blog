@@ -48338,6 +48338,55 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: ['titulos', 'itens', 'criar', 'detalhe', 'editar', 'deletar', 'token', 'ordemColum', 'ordem', 'modal'],
@@ -48397,6 +48446,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
             if (this.buscar) {
                 return this.itens.filter(function (res) {
+                    res = Object.values(res);
 
                     for (var k = 0; k < res.length; k++) {
                         if ((res[k] + "").toLowerCase().indexOf(_this.buscar.toLowerCase()) >= 0) {
@@ -48537,7 +48587,11 @@ var render = function() {
                               ? _c(
                                   "a",
                                   { attrs: { item: item, href: _vm.detalhe } },
-                                  [_vm._v("Detalhe |")]
+                                  [
+                                    _vm._v(
+                                      "\n                                    Detalhe |\n                            "
+                                    )
+                                  ]
                                 )
                               : _vm._e(),
                             _vm._v(" "),
@@ -48555,7 +48609,9 @@ var render = function() {
                             _vm._v(" "),
                             _vm.editar && !_vm.modal
                               ? _c("a", { attrs: { href: _vm.editar } }, [
-                                  _vm._v(" Editar |")
+                                  _vm._v(
+                                    "\n                                    Editar |\n                            "
+                                  )
                                 ])
                               : _vm._e(),
                             _vm._v(" "),
@@ -48596,7 +48652,11 @@ var render = function() {
                               ? _c(
                                   "a",
                                   { attrs: { item: item, href: _vm.detalhe } },
-                                  [_vm._v("Detalhe |")]
+                                  [
+                                    _vm._v(
+                                      "\n                                    Detalhe |\n                            "
+                                    )
+                                  ]
                                 )
                               : _vm._e(),
                             _vm._v(" "),
@@ -48614,7 +48674,9 @@ var render = function() {
                             _vm._v(" "),
                             _vm.editar && !_vm.modal
                               ? _c("a", { attrs: { href: _vm.editar } }, [
-                                  _vm._v(" Editar |")
+                                  _vm._v(
+                                    "\n                                    Editar |"
+                                  )
                                 ])
                               : _vm._e(),
                             _vm._v(" "),
@@ -48642,7 +48704,11 @@ var render = function() {
                               ? _c(
                                   "a",
                                   { attrs: { item: item, href: _vm.detalhe } },
-                                  [_vm._v("Detalhe |")]
+                                  [
+                                    _vm._v(
+                                      "\n                                Detalhe |\n                            "
+                                    )
+                                  ]
                                 )
                               : _vm._e(),
                             _vm._v(" "),
@@ -48660,7 +48726,9 @@ var render = function() {
                             _vm._v(" "),
                             _vm.editar && !_vm.modal
                               ? _c("a", { attrs: { href: _vm.editar } }, [
-                                  _vm._v(" Editar |")
+                                  _vm._v(
+                                    "\n                                Editar |"
+                                  )
                                 ])
                               : _vm._e(),
                             _vm._v(" "),
@@ -48668,17 +48736,6 @@ var render = function() {
                               ? _c("modal-link", {
                                   attrs: {
                                     item: item,
-                                    nome: "editar",
-                                    tipo: "link",
-                                    conteudo: "Editar |",
-                                    css: ""
-                                  }
-                                })
-                              : _vm._e(),
-                            _vm._v(" "),
-                            _vm.editar && _vm.modal
-                              ? _c("modal-link", {
-                                  attrs: {
                                     nome: "editar",
                                     tipo: "link",
                                     conteudo: "Editar |",
@@ -48888,9 +48945,24 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    props: ['nome']
+    props: ['nome', 'titulo']
 });
 
 /***/ }),
@@ -48909,18 +48981,70 @@ var render = function() {
         id: _vm.nome,
         tabindex: "-1",
         role: "dialog",
-        "aria-labelledby": _vm.nome,
         "aria-hidden": "true"
       }
     },
     [
-      _c("div", { staticClass: "modal-dialog modal-lg" }, [
-        _c("div", { staticClass: "modal-content" }, [_vm._t("default")], 2)
-      ])
+      _c(
+        "div",
+        {
+          staticClass: "modal-dialog modal-dialog-centered",
+          attrs: { role: "document" }
+        },
+        [
+          _c("div", { staticClass: "modal-content" }, [
+            _c("div", { staticClass: "modal-header" }, [
+              _c("h5", { staticClass: "modal-title", attrs: { id: "" } }, [
+                _vm._v(_vm._s(_vm.titulo))
+              ]),
+              _vm._v(" "),
+              _vm._m(0)
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-body" }, [_vm._t("default")], 2),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "modal-footer" },
+              [
+                _vm._t("botoes"),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-secondary",
+                    attrs: { type: "button", "data-dismiss": "modal" }
+                  },
+                  [_vm._v("Close")]
+                )
+              ],
+              2
+            )
+          ])
+        ]
+      )
     ]
   )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "button",
+      {
+        staticClass: "close",
+        attrs: {
+          type: "button",
+          "data-dismiss": "modal",
+          "aria-label": "Close"
+        }
+      },
+      [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+    )
+  }
+]
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
