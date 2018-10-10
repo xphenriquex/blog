@@ -19,6 +19,13 @@ Auth::routes();
 
 Route::get('home', 'HomeController@index')->name('home');
 
-Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'namespace' => 'Admin'], function () {
-    Route::resource('artigos', 'ArtigoController');
-});
+Route::group(
+    [
+        'middleware' => ['auth'], 
+        'prefix' => 'admin', 
+        'namespace' => 'Admin'
+    ], 
+    function () {
+        Route::resource('artigos', 'ArtigoController');
+    }
+);
