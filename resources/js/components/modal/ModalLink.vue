@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <span>
 
         <button 
             v-if="!tipo || (tipo != 'button' && tipo != 'link')" 
@@ -25,17 +25,11 @@
             v-bind:data-target="'#' + nome"
             >{{ conteudo }}</a>
         
-    </div>
+    </span>
 </template>
 
 <script>
     export default {
         props:['nome', 'tipo', 'conteudo', 'css'],
-        mounted() {
-            // console.log("nome = " + this.nome);
-            // console.log("Tipo = " + this.tipo);
-            // console.log("conteudo = " + this.conteudo);
-            // console.log("css = " + this.css);
-        },
     }
 </script>
