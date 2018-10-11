@@ -7,7 +7,7 @@
             <tabela-lista 
                 v-bind:titulos="['#', 'Título', 'Descrição', 'Data']"
                 v-bind:itens="{{ $listaArtigos }}"    
-                criar="#criar" detalhe="#detalhe" editar="#editar" deletar="#deletar" token="87869876876"
+                criar="#criar" detalhe="#detalhe" editar="#editar" deletar="#deletar" token="123547445"
                 ordem="asc" ordemColum="2"
                 modal="sim"
             ></tabela-lista>
@@ -15,7 +15,7 @@
     </pagina>
 
     <modal nome="adicionar" titulo="Adcionar">
-        <formulario id="formAdcionar" css="" method="put" action="#add" enctype="multipart/form-data" token="123218544">
+        <formulario id="formAdcionar" css="" method="post" action="{{ route('artigos.store') }}" enctype="" token="{{ csrf_token() }}">
             <div class="form-group">
                 <label for="titulo">Título</label>
                 <input type="text" class="form-control" id="titulo" name="titulo" placeholder="Digite um título">
@@ -39,8 +39,8 @@
         </span>
     </modal>
 
-    <modal nome="editar" titulo="Adcionar">
-        <formulario id="formEditar" css="" method="put" action="#edit" enctype="multipart/form-data" token="123218544">
+    <modal nome="editar" titulo="Editar">
+        <formulario id="formEditar" css="" method="post" action="" enctype="multipart/form-data" token="">
             <div class="form-group">
                 <label for="titulo">Título</label>
                 <input type="text" class="form-control" id="titulo" name="titulo" v-model="$store.state.item.titulo" placeholder="Digite um título">
