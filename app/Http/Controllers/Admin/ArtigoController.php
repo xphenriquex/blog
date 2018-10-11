@@ -45,7 +45,9 @@ class ArtigoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request->all());
+        $dados = $request->all();
+        $this->create($dados);
     }
 
     /**
