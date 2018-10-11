@@ -48405,6 +48405,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: ['titulos', 'itens', 'criar', 'detalhe', 'editar', 'deletar', 'token', 'ordemColum', 'ordem', 'modal'],
@@ -48753,7 +48754,7 @@ var render = function() {
                             _vm.editar && !_vm.modal
                               ? _c("a", { attrs: { href: _vm.editar } }, [
                                   _vm._v(
-                                    "\n                                Editar |"
+                                    "\n                                Editar |\n                            "
                                   )
                                 ])
                               : _vm._e(),
