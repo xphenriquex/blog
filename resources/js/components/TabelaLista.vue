@@ -110,7 +110,8 @@
 
                                 <a 
                                     v-if="editar && !modal" v-bind:href="editar">
-                                    Editar |</a>
+                                    Editar |
+                                </a>
                                 <modal-link 
                                     v-if="editar && modal" v-bind:item="item" 
                                     nome="editar" tipo="link" conteudo="Editar |" 
