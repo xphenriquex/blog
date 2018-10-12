@@ -26,7 +26,7 @@ class ArtigoController extends Controller
         //     ["id" => 2, "titulo" => "VUE JS", "descricao" => "Curso de VUE JS", "data" => "2017-10-12"]
         // ]);
 
-        $listaArtigos = json_encode(Artigo::select('id', 'titulo','descricao','data')->get());
+        $listaArtigos = Artigo::select('id', 'titulo','descricao','data')->get();
 
         return view('admin.artigos.index', compact('listaPaginas', 'listaArtigos'));
     }
@@ -76,7 +76,7 @@ class ArtigoController extends Controller
      */
     public function show($id)
     {
-        //
+        return Artigo::find($id);
     }
 
     /**
