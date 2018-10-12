@@ -71,10 +71,14 @@
 
 <script>
     export default {
-        props:['nome', 'tipo', 'conteudo', 'css', 'item'],
+        props:['nome', 'tipo', 'conteudo', 'css', 'item', 'url'],
         methods: {
             preencheFormulario: function(){
-                this.$store.commit('setItem', this.item);
+                axios.get(this.url + this.item.id).then(res => {
+                    console.log(res.data);
+                    this.$store.commit('setItem', res.data);    
+                });
+                
             }
         }
     }
