@@ -19,7 +19,7 @@
             <tabela-lista 
                 v-bind:titulos="['#', 'Título', 'Descrição', 'Data']"
                 v-bind:itens="{{ $listaArtigos }}"    
-                criar="#criar" detalhe="#detalhe" editar="#editar" deletar="#deletar" token="123547445"
+                criar="#criar" detalhe="/admin/artigos/" editar="#editar" deletar="#deletar" token="123547445"
                 ordem="asc" ordemColum="2"
                 modal="sim"
             >
@@ -80,9 +80,7 @@
     </modal>
 
     <modal nome="detalhe" v-bind:titulo="$store.state.item.titulo">
-        <p>
-            @{{ $store.state.item.descricao }}
-        </p>
+        <p> @{{ $store.state.item.descricao }} </p>
     </modal>
 @endsection
 
