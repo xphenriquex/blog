@@ -81,6 +81,7 @@
 
     <modal nome="detalhe" v-bind:titulo="$store.state.item.titulo">
         <p> @{{ $store.state.item.descricao }} </p>
+        <p> @{{ $store.state.item.conteudo }} </p>
     </modal>
 @endsection
 
