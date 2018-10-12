@@ -1,4 +1,4 @@
-@extends('layouts.app')
+    @extends('layouts.app')
 
 @section('content')
     <pagina tamanho="12">
@@ -10,7 +10,8 @@
                 criar="#criar" detalhe="#detalhe" editar="#editar" deletar="#deletar" token="123547445"
                 ordem="asc" ordemColum="2"
                 modal="sim"
-            ></tabela-lista>
+            >
+            </tabela-lista>
         </painel>
     </pagina>
 
@@ -18,20 +19,30 @@
         <formulario id="formAdcionar" css="" method="post" action="{{ route('artigos.store') }}" enctype="" token="{{ csrf_token() }}">
             <div class="form-group">
                 <label for="titulo">Título</label>
-                <input type="text" class="form-control" id="titulo" name="titulo" placeholder="Digite um título">
+                <input type="text" class="form-control" id="titulo" 
+                    name="titulo" placeholder="Digite um título"
+                    value="{{ old('titulo') }}"
+                >
             </div>
             <div class="form-group">
                 <label for="descricao">Descrição</label>
-                <input type="text" class="form-control" id="descricao" name="descricao" placeholder="Digite uma descrição">
+                <input type="text" class="form-control" id="descricao" 
+                    name="descricao" placeholder="Digite uma descrição"
+                    value="{{ old('descricao') }}"
+                >
             </div>
             <div class="form-group">
                 <label for="conteudo">Conteúdo</label>
-                <textarea class="form-control" id="conteudo"  name="conteudo" rows="3"></textarea>
+                <textarea class="form-control" id="conteudo"  
+                    name="conteudo" rows="3">{{ old('conteudo') }}</textarea>
 
             </div>
             <div class="form-group">
                 <label for="data">Data</label>
-                <input type="datetime-local" class="form-control" id="data" name="data">
+                <input type="datetime-local" class="form-control"
+                    id="data" name="data"
+                    value="{{ old('data') }}"
+                >
             </div>
         </formulario>
         <span slot="botoes">
