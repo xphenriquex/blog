@@ -1,5 +1,6 @@
 <template>
     <div>
+        
         <div class="form-group">
             <a 
                 v-if="criar && !modal" v-bind:href="criar" 
@@ -50,7 +51,7 @@
                                         Detalhe |
                                 </a>
                                 <modal-link 
-                                    v-if="detalhe && modal" v-bind:item="item" 
+                                    v-if="detalhe && modal" v-bind:item="item" v-bind:url="detalhe"
                                     nome="detalhe"  tipo="link" conteudo="Detalhe |" 
                                     css="">
                                 </modal-link>
@@ -77,7 +78,7 @@
                                         Detalhe |
                                 </a>
                                 <modal-link 
-                                    v-if="detalhe && modal" v-bind:item="item" 
+                                    v-if="detalhe && modal" v-bind:item="item" v-bind:url="detalhe"
                                     nome="detalhe" tipo="link" conteudo="Detalhe |" 
                                     css="">
                                 </modal-link>
@@ -86,7 +87,8 @@
                                 <a 
                                     v-if="editar && !modal" 
                                     v-bind:href="editar">
-                                        Editar |</a>
+                                        Editar |
+                                </a>
                                 <modal-link 
                                     v-if="editar && modal" 
                                     v-bind:item="item" 
@@ -103,7 +105,7 @@
                                 </a>
                                 <modal-link 
                                     v-if="detalhe && modal" 
-                                    v-bind:item="item" 
+                                    v-bind:item="item" v-bind:url="detalhe"
                                     nome="detalhe" tipo="link" conteudo="Detalhe |" 
                                     css="">
                                 </modal-link>
