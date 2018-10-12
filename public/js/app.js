@@ -49351,6 +49351,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: ['titulos', 'itens', 'criar', 'detalhe', 'editar', 'deletar', 'token', 'ordemColum', 'ordem', 'modal'],
@@ -49571,6 +49573,7 @@ var render = function() {
                               ? _c("modal-link", {
                                   attrs: {
                                     item: item,
+                                    url: _vm.detalhe,
                                     nome: "detalhe",
                                     tipo: "link",
                                     conteudo: "Detalhe |",
@@ -49636,6 +49639,7 @@ var render = function() {
                               ? _c("modal-link", {
                                   attrs: {
                                     item: item,
+                                    url: _vm.detalhe,
                                     nome: "detalhe",
                                     tipo: "link",
                                     conteudo: "Detalhe |",
@@ -49647,7 +49651,7 @@ var render = function() {
                             _vm.editar && !_vm.modal
                               ? _c("a", { attrs: { href: _vm.editar } }, [
                                   _vm._v(
-                                    "\n                                    Editar |"
+                                    "\n                                    Editar |\n                            "
                                   )
                                 ])
                               : _vm._e(),
@@ -49688,6 +49692,7 @@ var render = function() {
                               ? _c("modal-link", {
                                   attrs: {
                                     item: item,
+                                    url: _vm.detalhe,
                                     nome: "detalhe",
                                     tipo: "link",
                                     conteudo: "Detalhe |",
@@ -50152,10 +50157,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    props: ['nome', 'tipo', 'conteudo', 'css', 'item'],
+    props: ['nome', 'tipo', 'conteudo', 'css', 'item', 'url'],
     methods: {
         preencheFormulario: function preencheFormulario() {
-            this.$store.commit('setItem', this.item);
+            var _this = this;
+
+            axios.get(this.url + this.item.id).then(function (res) {
+                console.log(res.data);
+                _this.$store.commit('setItem', res.data);
+            });
         }
     }
 });
