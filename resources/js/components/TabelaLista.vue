@@ -132,12 +132,12 @@
 
 <script>
     export default {
-        props:['titulos', 'itens', 'criar', 'detalhe', 'editar', 'deletar', 'token', 'ordemColum', 'ordem', 'modal'],
+        props:['titulos', 'itens', 'criar', 'detalhe', 'editar', 'deletar', 'token', 'ordemcolum', 'ordem', 'modal'],
         data: function(){
             return {
                 buscar: '',
                 ordemAux: this.ordem || "asc",
-                ordemColumAux: this.ordemColum || 0
+                ordemColumAux: this.ordemcolum || 0
             }
         },
         methods: {
@@ -156,7 +156,7 @@
         },
         computed: {
             lista: function(){
-                let lista = this.itens;
+                let lista = this.itens.data;
                 let ordem =  this.ordemAux;
                 let ordemColum = this.ordemColumAux;
                 
