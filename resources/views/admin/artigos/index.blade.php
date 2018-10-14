@@ -20,7 +20,7 @@
                 v-bind:titulos="['#', 'Título', 'Descrição', 'Data']"
                 v-bind:itens="{{ $listaArtigos }}"    
                 criar="#criar" detalhe="/admin/artigos/" editar="/admin/artigos/" deletar="/admin/artigos/" token="{{ csrf_token() }}"
-                ordem="asc" ordemColum="2"
+                ordem="asc" ordemcolum="2"
                 modal="sim"
             >
             </tabela-lista>

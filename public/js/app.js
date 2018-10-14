@@ -49357,12 +49357,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    props: ['titulos', 'itens', 'criar', 'detalhe', 'editar', 'deletar', 'token', 'ordemColum', 'ordem', 'modal'],
+    props: ['titulos', 'itens', 'criar', 'detalhe', 'editar', 'deletar', 'token', 'ordemcolum', 'ordem', 'modal'],
     data: function data() {
         return {
             buscar: '',
             ordemAux: this.ordem || "asc",
-            ordemColumAux: this.ordemColum || 0
+            ordemColumAux: this.ordemcolum || 0
         };
     },
     methods: {
