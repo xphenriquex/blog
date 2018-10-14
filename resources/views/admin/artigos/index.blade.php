@@ -15,7 +15,7 @@
         @endif
 
         <painel titulo="Lista de artigos">
-            <breadcrumb v-bind:lista="{{ $listaPaginas }}"></breadcrumb>
+            <breadcrumb v-bind:lista=""></breadcrumb>
             <tabela-lista 
                 v-bind:titulos="['#', 'Título', 'Descrição', 'Data']"
                 v-bind:itens="{{ $listaArtigos }}"    

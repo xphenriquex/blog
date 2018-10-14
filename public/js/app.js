@@ -49357,12 +49357,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    props: ['titulos', 'itens', 'criar', 'detalhe', 'editar', 'deletar', 'token', 'ordemcolum', 'ordem', 'modal'],
+    props: ['titulos', 'itens', 'criar', 'detalhe', 'editar', 'deletar', 'token', 'ordemColum', 'ordem', 'modal'],
     data: function data() {
         return {
             buscar: '',
             ordemAux: this.ordem || "asc",
-            ordemColumAux: this.ordemcolum || 0
+            ordemColumAux: this.ordemColum || 0
         };
     },
     methods: {
@@ -49383,6 +49383,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         lista: function lista() {
             var _this = this;
 
+            var lista = this.itens;
             var ordem = this.ordemAux;
             var ordemColum = this.ordemColumAux;
 
@@ -49390,7 +49391,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             ordemColum = parseInt(ordemColum);
 
             if (ordem == "asc") {
-                this.itens.sort(function (a, b) {
+                lista.sort(function (a, b) {
                     if (Object.values(a)[ordemColum] > Object.values(b)[ordemColum]) {
                         return 1;
                     };
@@ -49400,7 +49401,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     return 0;
                 });
             } else {
-                this.itens.sort(function (a, b) {
+                lista.sort(function (a, b) {
                     if (Object.values(a)[ordemColum] < Object.values(b)[ordemColum]) {
                         return 1;
                     };
@@ -49412,7 +49413,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             }
 
             if (this.buscar) {
-                return this.itens.filter(function (res) {
+                return lista.filter(function (res) {
                     res = Object.values(res);
 
                     for (var k = 0; k < res.length; k++) {
@@ -49425,7 +49426,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 });
             }
 
-            return this.itens;
+            return lista;
         }
     }
 });

@@ -132,12 +132,12 @@
 
 <script>
     export default {
-        props:['titulos', 'itens', 'criar', 'detalhe', 'editar', 'deletar', 'token', 'ordemcolum', 'ordem', 'modal'],
+        props:['titulos', 'itens', 'criar', 'detalhe', 'editar', 'deletar', 'token', 'ordemColum', 'ordem', 'modal'],
         data: function(){
             return {
                 buscar: '',
                 ordemAux: this.ordem || "asc",
-                ordemColumAux: this.ordemcolum || 0
+                ordemColumAux: this.ordemColum || 0
             }
         },
         methods: {
@@ -156,7 +156,7 @@
         },
         computed: {
             lista: function(){
-
+                let lista = this.itens;
                 let ordem =  this.ordemAux;
                 let ordemColum = this.ordemColumAux;
                 
@@ -164,13 +164,13 @@
                 ordemColum = parseInt(ordemColum);
 
                 if(ordem == "asc"){
-                    this.itens.sort(function(a, b){
+                    lista.sort(function(a, b){
                         if(Object.values(a)[ordemColum] > Object.values(b)[ordemColum]) { return 1 };
                         if(Object.values(a)[ordemColum] < Object.values(b)[ordemColum]) { return -1 };
                         return 0;
                     });
                 }else{
-                    this.itens.sort(function(a, b){
+                    lista.sort(function(a, b){
                         if(Object.values(a)[ordemColum] < Object.values(b)[ordemColum]) { return 1 };
                         if(Object.values(a)[ordemColum] > Object.values(b)[ordemColum]) { return -1 };
                         return 0;
@@ -178,7 +178,7 @@
                 }
 
                 if(this.buscar){
-                    return this.itens.filter(res => {
+                    return lista.filter(res => {
                         res = Object.values(res);
 
                         for (let k = 0; k < res.length; k++) {
@@ -192,7 +192,7 @@
                 }
                 
 
-                return this.itens;                
+                return lista;                
             }
         }
     }

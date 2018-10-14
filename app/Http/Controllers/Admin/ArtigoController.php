@@ -22,7 +22,7 @@ class ArtigoController extends Controller
         ]);
 
 
-        $listaArtigos = Artigo::select('id', 'titulo','descricao','data')->get();
+        $listaArtigos = json_encode(Artigo::select('id', 'titulo','descricao','data')->get());
 
         return view('admin.artigos.index', compact('listaPaginas', 'listaArtigos'));
     }
