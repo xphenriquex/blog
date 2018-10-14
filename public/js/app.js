@@ -49353,6 +49353,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: ['titulos', 'itens', 'criar', 'detalhe', 'editar', 'deletar', 'token', 'ordemColum', 'ordem', 'modal'],
@@ -49377,7 +49379,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             }
         }
     },
-
     computed: {
         lista: function lista() {
             var _this = this;
@@ -49539,7 +49540,7 @@ var render = function() {
                           {
                             attrs: {
                               id: index,
-                              action: _vm.deletar,
+                              action: _vm.deletar + item.id,
                               method: "post"
                             }
                           },
@@ -49594,6 +49595,7 @@ var render = function() {
                               ? _c("modal-link", {
                                   attrs: {
                                     item: item,
+                                    url: _vm.editar,
                                     nome: "editar",
                                     tipo: "link",
                                     conteudo: "Editar |",
@@ -49660,6 +49662,7 @@ var render = function() {
                               ? _c("modal-link", {
                                   attrs: {
                                     item: item,
+                                    url: _vm.editar,
                                     nome: "editar",
                                     tipo: "link",
                                     conteudo: "Editar |",
@@ -49713,6 +49716,7 @@ var render = function() {
                               ? _c("modal-link", {
                                   attrs: {
                                     item: item,
+                                    url: _vm.editar,
                                     nome: "editar",
                                     tipo: "link",
                                     conteudo: "Editar |",
@@ -50163,7 +50167,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             var _this = this;
 
             axios.get(this.url + this.item.id).then(function (res) {
-                console.log(res.data);
                 _this.$store.commit('setItem', res.data);
             });
         }
