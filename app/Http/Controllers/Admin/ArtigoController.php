@@ -21,10 +21,6 @@ class ArtigoController extends Controller
             ["titulo" => "Lista de comprar", "url" => ''],
         ]);
 
-        // $listaArtigos = json_encode([
-        //     ["id" => 1, "titulo" => "PHP OO", "descricao" => "Curso de PHP OO", "data" => "2018-10-10"],
-        //     ["id" => 2, "titulo" => "VUE JS", "descricao" => "Curso de VUE JS", "data" => "2017-10-12"]
-        // ]);
 
         $listaArtigos = Artigo::select('id', 'titulo','descricao','data')->get();
 
@@ -99,7 +95,23 @@ class ArtigoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $dados = $request->all();
+        $validacao = Validator::make($dados, [
+            'titulo' => 'required',
+            'descricao' => 'required',
+            'conteudo' => 'required',
+            'data' => 'required'
+        ]);
+
+        if($validacao->fails()){
+            return redirect()
+                ->back()
+                ->withErrors($validacao)
+                ->withInput();
+        }
+
+        Artigo::find($id)->update($dados);
+        return redirect()->back();
     }
 
     /**
@@ -110,6 +122,7 @@ class ArtigoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Artigo::find($id)->delete();
+        return redirect()->back();
     }
 }
