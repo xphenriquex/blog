@@ -40,7 +40,7 @@
                             >
                             <form 
                                 v-bind:id="index" v-if="deletar && token" 
-                                v-bind:action="deletar" method="post">
+                                v-bind:action="deletar + item.id" method="post">
 
                                 <input type="hidden" name="_method" value="DELETE">
                                 <input type="hidden" name="_token" v-bind:value="token">
@@ -63,6 +63,7 @@
                                 </a>
                                 <modal-link 
                                     v-if="editar && modal" v-bind:item="item" 
+                                    v-bind:url="editar"
                                     nome="editar" tipo="link" conteudo="Editar |" 
                                     css="">
                                 </modal-link>
@@ -91,7 +92,7 @@
                                 </a>
                                 <modal-link 
                                     v-if="editar && modal" 
-                                    v-bind:item="item" 
+                                    v-bind:item="item" v-bind:url="editar"
                                     nome="editar" tipo="link" conteudo="Editar |" 
                                     css="">
                                 </modal-link>
@@ -116,6 +117,7 @@
                                 </a>
                                 <modal-link 
                                     v-if="editar && modal" v-bind:item="item" 
+                                    v-bind:url="editar"
                                     nome="editar" tipo="link" conteudo="Editar |" 
                                     css="">
                                 </modal-link>
@@ -152,7 +154,6 @@
                 }
             }
         },
-
         computed: {
             lista: function(){
 
