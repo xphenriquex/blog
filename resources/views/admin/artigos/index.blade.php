@@ -1,4 +1,4 @@
-    @extends('layouts.app')
+@extends('layouts.app')
 
 @section('content')
     <pagina tamanho="12">
@@ -19,7 +19,7 @@
             <tabela-lista 
                 v-bind:titulos="['#', 'Título', 'Descrição', 'Data']"
                 v-bind:itens="{{ $listaArtigos }}"    
-                criar="#criar" detalhe="/admin/artigos/" editar="#editar" deletar="#deletar" token="123547445"
+                criar="#criar" detalhe="/admin/artigos/" editar="/admin/artigos/" deletar="/admin/artigos/" token="{{ csrf_token() }}"
                 ordem="asc" ordemColum="2"
                 modal="sim"
             >
@@ -28,7 +28,8 @@
     </pagina>
 
     <modal nome="adicionar" titulo="Adcionar">
-        <formulario id="formAdcionar" css="" method="post" action="{{ route('artigos.store') }}" enctype="" token="{{ csrf_token() }}">
+        <formulario id="formAdcionar" css="" method="post"
+            action="{{ route('artigos.store') }}" enctype="" token="{{ csrf_token() }}">
             <div class="form-group">
                 <label for="titulo">Título</label>
                 <input type="text" class="form-control" id="titulo" 
@@ -63,14 +64,32 @@
     </modal>
 
     <modal nome="editar" titulo="Editar">
-        <formulario id="formEditar" css="" method="post" action="" enctype="multipart/form-data" token="">
+        <formulario id="formEditar" css="" method="put" 
+            v-bind:action="'/admin/artigos/' + $store.state.item.id"  
+            enctype="" token="{{ csrf_token() }}">
             <div class="form-group">
                 <label for="titulo">Título</label>
-                <input type="text" class="form-control" id="titulo" name="titulo" v-model="$store.state.item.titulo" placeholder="Digite um título">
+                <input type="text" class="form-control" id="titulo" 
+                    name="titulo" v-model="$store.state.item.titulo" 
+                    placeholder="Digite um título">
             </div>
             <div class="form-group">
                 <label for="descricao">Descrição</label>
-                <input type="text" class="form-control" id="descricao" name="descricao" v-model="$store.state.item.descricao" placeholder="Digite uma descrição">
+                <input type="text" class="form-control" id="descricao" 
+                    name="descricao" v-model="$store.state.item.descricao" 
+                >
+            </div>
+            <div class="form-group">
+                <label for="conteudo">Conteúdo</label>
+                <textarea class="form-control" id="conteudo"  
+                    name="conteudo" rows="3" v-model="$store.state.item.conteudo"></textarea>
+
+            </div>
+            <div class="form-group">
+                <label for="data">Data</label>
+                <input type="datetime-local" class="form-control"
+                    id="data" name="data" v-model="$store.state.item.data"
+                >
             </div>
         </formulario>
         <span slot="botoes">
