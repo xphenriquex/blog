@@ -14,7 +14,7 @@
             @endforeach
         @endif
 
-        <painel titulo="Lista de artigos">
+        <painel titulo="Lista de Artigos">
             <breadcrumb v-bind:lista="{{ $listaPaginas }}"></breadcrumb>
             <tabela-lista 
                 v-bind:titulos="['#', 'Título', 'Descrição', 'Data']"
