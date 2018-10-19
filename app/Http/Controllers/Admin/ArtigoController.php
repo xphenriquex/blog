@@ -22,7 +22,7 @@ class ArtigoController extends Controller
         ]);
 
 
-        $listaArtigos = Artigo::select('id', 'titulo','descricao','data')->paginate(2);
+        $listaArtigos = Artigo::select('id', 'titulo','descricao','data')->paginate(5);
 
         return view('admin.artigos.index', compact('listaPaginas', 'listaArtigos'));
     }
