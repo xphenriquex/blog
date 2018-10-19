@@ -18,7 +18,7 @@ class ArtigoController extends Controller
     {
         $listaPaginas = json_encode([
             ["titulo" => "Home", "url" => route('home')],
-            ["titulo" => "Lista de comprar", "url" => ''],
+            ["titulo" => "Lista de Artigos", "url" => ''],
         ]);
 
 
