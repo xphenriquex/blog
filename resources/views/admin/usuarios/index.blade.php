@@ -53,7 +53,15 @@
                     name="password" placeholder="Digite sua Senha"
                     value="{{ old('password') }}"
                 >
-
+            <div class="form-group">
+                    <label for="autor">Autor</label>
+                    <select class="form-control" id="autor" name="autor" >
+                        <option value="">Selecione</option>    
+                        <option {{ ( old('autor') && old('autor') == 'S' ? 'selected' : '' ) }} 
+                            value="S">Sim</option>    
+                        <option {{ ( old('autor') && old('autor') == 'N' ? 'selected' : '' ) }} 
+                            value="N">Não</option>    
+                    <select>
             </div>
             
         </formulario>
