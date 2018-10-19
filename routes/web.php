@@ -28,5 +28,6 @@ Route::group(
     function () {
         Route::resource('artigos', 'ArtigoController');
         Route::resource('usuarios', 'UsuarioController');
+        Route::resource('autores', 'AutorController');
     }
 );
