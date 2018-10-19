@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Rule;
 use App\User;
 use Validator;
 
@@ -97,11 +98,31 @@ class UsuarioController extends Controller
     public function update(Request $request, $id)
     {
         $dados = $request->all();
-        $validacao = Validator::make($dados, [
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:6|',
-        ]);
+
+        if(isset($dados['password']) && $dados['password'] != ""){
+            $validacao = Validator::make($dados, [
+                'name' => 'required|string|max:255',
+                'email' => [
+                    'required','string','email','max:255',
+                    Rule::unique('users')->ignore($id)
+                ],
+                'password' => 'required|string|min:6|',
+            ]);
+
+            $dados['password'] = Hash::make($dados['password']);
+        }else{
+
+            $validacao = Validator::make($dados, [
+                'name' => 'required|string|max:255',
+                'email' => [
+                    'required','string','email','max:255',
+                    Rule::unique('users')->ignore($id)
+                ],
+            ]);
+            unset($dados["password"]);
+        }
+
+        
 
         if($validacao->fails()){
             return redirect()
