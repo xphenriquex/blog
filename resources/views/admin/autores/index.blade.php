@@ -19,8 +19,8 @@
             <tabela-lista 
                 v-bind:titulos="['#', 'Nome', 'E-mail']"
                 v-bind:itens="{{ json_encode($listaModelo) }}"    
-                criar="#criar" detalhe="/admin/autores/" editar="/admin/autores/" deletar="/admin/autores/" 
-                token="{{ csrf_token() }}"
+                criar="#criar" detalhe="/admin/autores/" 
+                editar="/admin/autores/" 
                 ordem="asc" 
                 ordemcolum="2"
                 modal="sim"
@@ -48,6 +48,18 @@
                     name="email" placeholder="Digite seu E-mail"
                     value="{{ old('email') }}"
                 >
+            </div>
+            <div class="form-group">
+                <label for="autor">Autor</label>
+                <select class="form-control" id="autor" name="autor" >
+                    <option value="">Selecione</option>    
+                    <option 
+                        {{ ( old('autor') && old('autor') == 'S' ? 'selected' : '' ) }} 
+                        {{ ( !old('autor') ? 'selected' : '' ) }} 
+                        value="S">Sim</option>    
+                    <option {{ ( old('autor') && old('autor') == 'N' ? 'selected' : '' ) }} 
+                        value="N">Não</option>    
+                </select>
             </div>
             <div class="form-group">
                 <label for="password">Senha</label>
@@ -80,6 +92,16 @@
                     name="email"  placeholder="Digite seu E-mail"
                     v-model="$store.state.item.email" 
                 >
+            </div>
+            <div class="form-group">
+                <label for="autor">Autor</label>
+                <select class="form-control" id="autor" name="autor" v-model="$store.state.item.autor" >
+                    <option value="">Selecione</option>    
+                    <option  
+                        value="S">Sim</option>    
+                    <option 
+                        value="N">Não</option>    
+                </select>
             </div>
             <div class="form-group">
                 <label for="password">Senha</label>
