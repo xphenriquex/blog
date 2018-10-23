@@ -70,35 +70,9 @@
                                 
                                 <a href="#" v-on:click="executaForm(index)">Deletar</a>
 
-                            </form>
+                            </form> 
 
-                            <span v-if="!token">
-                                <a 
-                                    v-if="detalhe && !modal" v-bind:item="item" 
-                                    v-bind:href="detalhe">
-                                        Detalhe |
-                                </a>
-                                <modal-link 
-                                    v-if="detalhe && modal" v-bind:item="item" v-bind:url="detalhe"
-                                    nome="detalhe" tipo="link" conteudo="Detalhe |" 
-                                    css="">
-                                </modal-link>
-
-
-                                <a 
-                                    v-if="editar && !modal" 
-                                    v-bind:href="editar">
-                                        Editar |
-                                </a>
-                                <modal-link 
-                                    v-if="editar && modal" 
-                                    v-bind:item="item" v-bind:url="editar"
-                                    nome="editar" tipo="link" conteudo="Editar |" 
-                                    css="">
-                                </modal-link>
-                            </span>   
-
-                            <span v-if="!token && !deletar">
+                            <span v-if="!token || !deletar">
                                 <a 
                                     v-if="detalhe && !modal" v-bind:item="item" 
                                     v-bind:href="detalhe">
@@ -113,12 +87,12 @@
 
                                 <a 
                                     v-if="editar && !modal" v-bind:href="editar">
-                                    Editar |
+                                    Editar
                                 </a>
                                 <modal-link 
                                     v-if="editar && modal" v-bind:item="item" 
                                     v-bind:url="editar"
-                                    nome="editar" tipo="link" conteudo="Editar |" 
+                                    nome="editar" tipo="link" conteudo="Editar" 
                                     css="">
                                 </modal-link>
 
