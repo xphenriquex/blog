@@ -48788,7 +48788,7 @@ var content = __webpack_require__(48);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(13)("43096fe0", content, false, {});
+var update = __webpack_require__(13)("fe492066", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -48966,7 +48966,7 @@ var content = __webpack_require__(54);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(13)("a4edf71e", content, false, {});
+var update = __webpack_require__(13)("54b0d2e4", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -49223,32 +49223,6 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -49622,61 +49596,7 @@ var render = function() {
                         )
                       : _vm._e(),
                     _vm._v(" "),
-                    !_vm.token
-                      ? _c(
-                          "span",
-                          [
-                            _vm.detalhe && !_vm.modal
-                              ? _c(
-                                  "a",
-                                  { attrs: { item: item, href: _vm.detalhe } },
-                                  [
-                                    _vm._v(
-                                      "\n                                    Detalhe |\n                            "
-                                    )
-                                  ]
-                                )
-                              : _vm._e(),
-                            _vm._v(" "),
-                            _vm.detalhe && _vm.modal
-                              ? _c("modal-link", {
-                                  attrs: {
-                                    item: item,
-                                    url: _vm.detalhe,
-                                    nome: "detalhe",
-                                    tipo: "link",
-                                    conteudo: "Detalhe |",
-                                    css: ""
-                                  }
-                                })
-                              : _vm._e(),
-                            _vm._v(" "),
-                            _vm.editar && !_vm.modal
-                              ? _c("a", { attrs: { href: _vm.editar } }, [
-                                  _vm._v(
-                                    "\n                                    Editar |\n                            "
-                                  )
-                                ])
-                              : _vm._e(),
-                            _vm._v(" "),
-                            _vm.editar && _vm.modal
-                              ? _c("modal-link", {
-                                  attrs: {
-                                    item: item,
-                                    url: _vm.editar,
-                                    nome: "editar",
-                                    tipo: "link",
-                                    conteudo: "Editar |",
-                                    css: ""
-                                  }
-                                })
-                              : _vm._e()
-                          ],
-                          1
-                        )
-                      : _vm._e(),
-                    _vm._v(" "),
-                    !_vm.token && !_vm.deletar
+                    !_vm.token || !_vm.deletar
                       ? _c(
                           "span",
                           [
@@ -49708,7 +49628,7 @@ var render = function() {
                             _vm.editar && !_vm.modal
                               ? _c("a", { attrs: { href: _vm.editar } }, [
                                   _vm._v(
-                                    "\n                                Editar |\n                            "
+                                    "\n                                Editar\n                            "
                                   )
                                 ])
                               : _vm._e(),
@@ -49720,7 +49640,7 @@ var render = function() {
                                     url: _vm.editar,
                                     nome: "editar",
                                     tipo: "link",
-                                    conteudo: "Editar |",
+                                    conteudo: "Editar",
                                     css: ""
                                   }
                                 })
