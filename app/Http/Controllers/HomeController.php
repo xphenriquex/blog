@@ -29,8 +29,8 @@ class HomeController extends Controller
             ["titulo" => "Home", "url" => ''],
         ]);
 
-        $qtdArtigos = Artigo::all()->count();
-        $qtdUsuarios = User::all()->count();
+        $qtdArtigos = Artigo::count();
+        $qtdUsuarios = User::count();
         $qtdAutores = User::where('autor','=','S')->count();
         
 
