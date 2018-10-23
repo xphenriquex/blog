@@ -38,30 +38,31 @@
                 <input type="text" class="form-control" id="name" 
                     name="name" placeholder="Digite seu Nome"
                     value="{{ old('name') }}"
-                >
+                />
             </div>
             <div class="form-group">
                 <label for="email">E-mail</label>
                 <input type="email" class="form-control" id="email" 
                     name="email" placeholder="Digite seu E-mail"
                     value="{{ old('email') }}"
-                >
+                />
+            </div>
+            <div class="form-group">
+                <label for="autor">Autor</label>
+                <select class="form-control" id="autor" name="autor" >
+                    <option value="">Selecione</option>    
+                    <option {{ ( old('autor') && old('autor') == 'S' ? 'selected' : '' ) }} 
+                        value="S">Sim</option>    
+                    <option {{ ( old('autor') && old('autor') == 'N' ? 'selected' : '' ) }} 
+                        value="N">Não</option>    
+                </select>
             </div>
             <div class="form-group">
                 <label for="password">Senha</label>
                 <input type="password" class="form-control" id="password" 
                     name="password" placeholder="Digite sua Senha"
                     value="{{ old('password') }}"
-                >
-            <div class="form-group">
-                    <label for="autor">Autor</label>
-                    <select class="form-control" id="autor" name="autor" >
-                        <option value="">Selecione</option>    
-                        <option {{ ( old('autor') && old('autor') == 'S' ? 'selected' : '' ) }} 
-                            value="S">Sim</option>    
-                        <option {{ ( old('autor') && old('autor') == 'N' ? 'selected' : '' ) }} 
-                            value="N">Não</option>    
-                    <select>
+                />
             </div>
             
         </formulario>
@@ -78,20 +79,31 @@
                 <label for="name">Nome</label>
                 <input type="text" class="form-control" id="name" 
                     name="name" v-model="$store.state.item.name" 
-                    placeholder="Digite seu Nome">
+                    placeholder="Digite seu Nome"
+                />
             </div>
             <div class="form-group">
                 <label for="email">E-mail</label>
                 <input type="email" class="form-control" id="email" 
                     name="email"  placeholder="Digite seu E-mail"
                     v-model="$store.state.item.email" 
-                >
+                />
+            </div>
+            <div class="form-group">
+                <label for="autor">Autor</label>
+                <select class="form-control" id="autor" name="autor" v-model="$store.state.item.autor" >
+                    <option value="">Selecione</option>    
+                    <option  
+                        value="S">Sim</option>    
+                    <option 
+                        value="N">Não</option>    
+                </select>
             </div>
             <div class="form-group">
                 <label for="password">Senha</label>
                 <input type="password" class="form-control" id="password" 
                     name="password" 
-                >
+                />
             </div>
         </formulario>
         <span slot="botoes">
