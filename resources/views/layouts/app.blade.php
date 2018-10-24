@@ -6,10 +6,12 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
+    
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
+    <script src="//cdn.ckeditor.com/4.6.2/full/ckeditor.js"></script>
+    {{-- <script src="../../../node_modules/vue-ckeditor2/vue-ckeditor2.js"></script> --}}
     <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Fonts -->
