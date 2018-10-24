@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 use App\Artigo;
 use Validator;
+use App\User;
 
 class ArtigoController extends Controller
 {
@@ -21,8 +23,14 @@ class ArtigoController extends Controller
             ["titulo" => "Lista de Artigos", "url" => ''],
         ]);
 
-
-        $listaArtigos = Artigo::select('id', 'titulo','descricao','data')->paginate(5);
+        $listaArtigos = DB::table('artigos')
+                ->join('users', 'users.id', '=', 'artigos.user_id')
+                ->select(
+                    'artigos.id', 'artigos.titulo','artigos.descricao',
+                    'users.name','artigos.user_id','artigos.data'
+                    )
+                ->whereNull('deleted_at')
+                ->paginate(5);
 
         return view('admin.artigos.index', compact('listaPaginas', 'listaArtigos'));
     }
