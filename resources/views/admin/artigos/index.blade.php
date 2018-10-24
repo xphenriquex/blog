@@ -17,7 +17,7 @@
         <painel titulo="Lista de Artigos">
             <breadcrumb v-bind:lista="{{ $listaPaginas }}"></breadcrumb>
             <tabela-lista 
-                v-bind:titulos="['#', 'Título', 'Descrição', 'Autor' , 'Data']"
+                v-bind:titulos="['#', 'Título', 'Descrição', 'Autor', 'Data']"
                 v-bind:itens="{{ json_encode($listaArtigos) }}"    
                 criar="#criar" detalhe="/admin/artigos/" editar="/admin/artigos/" deletar="/admin/artigos/" token="{{ csrf_token() }}"
                 ordem="asc" ordemcolum="2"
@@ -48,9 +48,54 @@
                 >
             </div>
             <div class="form-group">
-                <label for="conteudo">Conteúdo</label>
-                <textarea class="form-control" id="conteudo"  
-                    name="conteudo" rows="3">{{ old('conteudo') }}</textarea>
+                <label for="addConteudo">Conteúdo</label>
+
+                <ckeditor 
+                    id="addConteudo"
+                    name="conteudo"
+                    value="{{ old('conteudo') }}" 
+                    v-bind:config="{
+                            toolbar: 
+                            [
+                                [
+                                    'Bold', 'Italic', 'Underline',
+                                    'Strike', 'Subscript', 'Superscript'
+                                ]
+                            ],
+                            height: 200
+                        }">
+                </ckeditor>
+
+                {{-- <ckeditor
+                id="addConteudo"
+                name="conteudo"
+                value="{{ old('conteudo') }}"
+                v-bind:config="{
+                    toolbar: [
+                        [
+                            'Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript']
+                        ],
+                    height: 200
+                }"></ckeditor> --}}
+
+                {{-- <textarea class="form-control" id="conteudo"  
+                    name="conteudo" rows="3"></textarea> --}}
+
+                    {{-- <ckeditor 
+                    id="addConteudo"
+                    name="conteudo"
+                    value="aa" 
+                    v-bind:config="
+                        {
+                            toolbar: 
+                            [
+                                [
+                                    'Bold', 'Italic', 'Underline',
+                                    'Strike', 'Subscript', 'Superscript'
+                                ]
+                            ],
+                        }" 
+                    /> --}}
 
             </div>
             <div class="form-group">
@@ -83,8 +128,8 @@
                 >
             </div>
             <div class="form-group">
-                <label for="conteudo">Conteúdo</label>
-                <textarea class="form-control" id="conteudo"  
+                <label for="editConteudo">Conteúdo</label>
+                <textarea class="form-control" id="editConteudo"  
                     name="conteudo" rows="3" v-model="$store.state.item.conteudo"></textarea>
 
             </div>
