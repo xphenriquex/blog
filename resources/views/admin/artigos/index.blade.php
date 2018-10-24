@@ -17,7 +17,7 @@
         <painel titulo="Lista de Artigos">
             <breadcrumb v-bind:lista="{{ $listaPaginas }}"></breadcrumb>
             <tabela-lista 
-                v-bind:titulos="['#', 'Título', 'Descrição', 'Data']"
+                v-bind:titulos="['#', 'Título', 'Descrição', 'Autor' , 'Data']"
                 v-bind:itens="{{ json_encode($listaArtigos) }}"    
                 criar="#criar" detalhe="/admin/artigos/" editar="/admin/artigos/" deletar="/admin/artigos/" token="{{ csrf_token() }}"
                 ordem="asc" ordemcolum="2"
