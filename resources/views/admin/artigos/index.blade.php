@@ -49,54 +49,12 @@
             </div>
             <div class="form-group">
                 <label for="addConteudo">Conteúdo</label>
-
                 <ckeditor 
-                    id="addConteudo"
                     name="conteudo"
-                    value="{{ old('conteudo') }}" 
-                    v-bind:config="{
-                            toolbar: 
-                            [
-                                [
-                                    'Bold', 'Italic', 'Underline',
-                                    'Strike', 'Subscript', 'Superscript'
-                                ]
-                            ],
-                            height: 200
-                        }">
-                </ckeditor>
-
-                {{-- <ckeditor
-                id="addConteudo"
-                name="conteudo"
-                value="{{ old('conteudo') }}"
-                v-bind:config="{
-                    toolbar: [
-                        [
-                            'Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript']
-                        ],
-                    height: 200
-                }"></ckeditor> --}}
-
-                {{-- <textarea class="form-control" id="conteudo"  
-                    name="conteudo" rows="3"></textarea> --}}
-
-                    {{-- <ckeditor 
                     id="addConteudo"
-                    name="conteudo"
-                    value="aa" 
-                    v-bind:config="
-                        {
-                            toolbar: 
-                            [
-                                [
-                                    'Bold', 'Italic', 'Underline',
-                                    'Strike', 'Subscript', 'Superscript'
-                                ]
-                            ],
-                        }" 
-                    /> --}}
-
+                    types=""
+                    value="{{ old('conteudo') }}"
+                ></ckeditor> 
             </div>
             <div class="form-group">
                 <label for="data">Data</label>
@@ -129,9 +87,19 @@
             </div>
             <div class="form-group">
                 <label for="editConteudo">Conteúdo</label>
-                <textarea class="form-control" id="editConteudo"  
-                    name="conteudo" rows="3" v-model="$store.state.item.conteudo"></textarea>
-
+                <ckeditor 
+                    name="editConteudo"
+                    id="editConteudo"
+                    types=""
+                    ></ckeditor>
+                    
+                    {{-- <textarea
+                        class="form-control"
+                        rows="3"
+                        name="editConteudo"
+                        id="editConteudo"
+                        v-model="$store.state.item.conteudo">
+                    </textarea> --}}
             </div>
             <div class="form-group">
                 <label for="data">Data</label>
