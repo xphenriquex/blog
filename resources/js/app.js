@@ -48,8 +48,8 @@ Vue.component('breadcrumb', require('./components/Breadcrumb.vue'));
 Vue.component('modal', require('./components/modal/Modal.vue'));
 Vue.component('modal-link', require('./components/modal/ModalLink.vue'));
 Vue.component('formulario', require('./components/Formulario.vue'));
-// Vue.component('ckeditor', require('vue-ckeditor2'));
 Vue.component('ckeditor', require('./components/Ckeditor.vue'));
+Vue.component('artigo-card', require('./components/ArtigoCard.vue'));
 
 
 const app = new Vue({

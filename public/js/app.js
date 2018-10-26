@@ -14298,7 +14298,7 @@ function applyToTag (styleElement, obj) {
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(15);
-module.exports = __webpack_require__(76);
+module.exports = __webpack_require__(81);
 
 
 /***/ }),
@@ -14355,8 +14355,8 @@ Vue.component('breadcrumb', __webpack_require__(63));
 Vue.component('modal', __webpack_require__(66));
 Vue.component('modal-link', __webpack_require__(69));
 Vue.component('formulario', __webpack_require__(72));
-// Vue.component('ckeditor', require('vue-ckeditor2'));
-Vue.component('ckeditor', __webpack_require__(80));
+Vue.component('ckeditor', __webpack_require__(75));
+Vue.component('artigo-card', __webpack_require__(78));
 
 var app = new Vue({
     el: '#app',
@@ -50399,25 +50399,15 @@ if (false) {
 }
 
 /***/ }),
-/* 75 */,
-/* 76 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 77 */,
-/* 78 */,
-/* 79 */,
-/* 80 */
+/* 75 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(81)
+var __vue_script__ = __webpack_require__(76)
 /* template */
-var __vue_template__ = __webpack_require__(82)
+var __vue_template__ = __webpack_require__(77)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -50456,7 +50446,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 81 */
+/* 76 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -50607,7 +50597,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 82 */
+/* 77 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -50639,6 +50629,133 @@ if (false) {
     require("vue-hot-reload-api")      .rerender("data-v-1a973a80", module.exports)
   }
 }
+
+/***/ }),
+/* 78 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(79)
+/* template */
+var __vue_template__ = __webpack_require__(80)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/js/components/ArtigoCard.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-7be5b3a9", Component.options)
+  } else {
+    hotAPI.reload("data-v-7be5b3a9", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 79 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    props: ['titulo', 'autor', 'data', 'descricao', 'link', 'imagem', 'largura']
+});
+
+/***/ }),
+/* 80 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "card", style: "width: " + (_vm.largura || "18") + "rem;" },
+    [
+      _c("img", {
+        staticClass: "card-img-top",
+        attrs: {
+          src:
+            "https://gaea.com.br/wp-content/uploads/2016/09/tudo-que-voce-precisa-saber-sobre-desenvolvimento-de-software.jpeg",
+          alt: "Card image cap"
+        }
+      }),
+      _vm._v(" "),
+      _c("div", { staticClass: "card-body" }, [
+        _c("p", { staticClass: "card-text" }, [
+          _c("small", { staticClass: "text-muted" }, [
+            _vm._v(_vm._s(_vm.autor) + " - " + _vm._s(_vm.data))
+          ])
+        ]),
+        _vm._v(" "),
+        _c("h5", { staticClass: "card-title" }, [_vm._v(_vm._s(_vm.titulo))]),
+        _vm._v(" "),
+        _c("p", { staticClass: "card-text" }, [_vm._v(_vm._s(_vm.descricao))]),
+        _vm._v(" "),
+        _c("a", { staticClass: "btn btn-primary", attrs: { href: _vm.link } }, [
+          _vm._v("Leia mais")
+        ])
+      ])
+    ]
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-7be5b3a9", module.exports)
+  }
+}
+
+/***/ }),
+/* 81 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);
