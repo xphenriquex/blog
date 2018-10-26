@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Artigo;
 use App\User;
 
-class HomeController extends Controller
+class AdminController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -26,7 +26,7 @@ class HomeController extends Controller
     public function index()
     {
         $listaPaginas = json_encode([
-            ["titulo" => "Home", "url" => ''],
+            ["titulo" => "Admin", "url" => ''],
         ]);
 
         $qtdArtigos = Artigo::count();
