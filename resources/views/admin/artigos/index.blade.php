@@ -88,18 +88,11 @@
             <div class="form-group">
                 <label for="editConteudo">Conteúdo</label>
                 <ckeditor 
-                    name="editConteudo"
+                    name="conteudo"
                     id="editConteudo"
                     types=""
+                    v-model="$store.state.item.conteudo"
                     ></ckeditor>
-                    
-                    {{-- <textarea
-                        class="form-control"
-                        rows="3"
-                        name="editConteudo"
-                        id="editConteudo"
-                        v-model="$store.state.item.conteudo">
-                    </textarea> --}}
             </div>
             <div class="form-group">
                 <label for="data">Data</label>
