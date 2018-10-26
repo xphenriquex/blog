@@ -50487,7 +50487,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         return {
             instanceValue: '',
             config: {
-                toolbar: [['Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript']],
+                toolbar: [['Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', 'Cut', 'Copy', 'Paste', 'Undo', 'Redo']],
                 height: 300
             }
         };

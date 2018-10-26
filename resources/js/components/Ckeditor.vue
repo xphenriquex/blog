@@ -25,7 +25,11 @@ export default {
             instanceValue: '',
             config: {
                 toolbar: [
-                    ['Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript']
+                    [
+                        'Bold', 'Italic', 'Underline', 'Strike',
+                        'Subscript', 'Superscript',
+                        'Cut','Copy','Paste','Undo','Redo'
+                    ]
                 ],
                 height: 300
             }
