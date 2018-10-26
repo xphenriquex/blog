@@ -17,7 +17,7 @@ class ArtigoController extends Controller
     public function index()
     {
         $listaPaginas = json_encode([
-            ["titulo" => "Home", "url" => route('home')],
+            ["titulo" => "Admin", "url" => route('admin')],
             ["titulo" => "Lista de Artigos", "url" => ''],
         ]);
         
