@@ -34,6 +34,6 @@ class AdminController extends Controller
         $qtdAutores = User::where('autor','=','S')->count();
         
 
-        return view('home', compact('listaPaginas', 'qtdArtigos', 'qtdUsuarios', 'qtdAutores'));
+        return view('admin', compact('listaPaginas', 'qtdArtigos', 'qtdUsuarios', 'qtdAutores'));
     }
 }
