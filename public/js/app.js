@@ -50475,33 +50475,134 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    props: ['name', 'value', 'id', 'types'],
+    name: 'VueCkeditor',
+    props: ['name', 'value', 'id', 'types', 'instanceReadyCallback', 'readOnlyMode'],
     data: function data() {
         return {
-            content: '',
+            instanceValue: '',
             config: {
                 toolbar: [['Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript']],
                 height: 300
             }
         };
     },
+
+    computed: {
+        instance: function instance() {
+            return CKEDITOR.instances[this.id];
+        }
+    },
+    watch: {
+        value: function value(val) {
+            try {
+                if (this.instance) {
+                    this.update(val);
+                }
+            } catch (e) {}
+        },
+        readOnlyMode: function readOnlyMode(val) {
+            this.instance.setReadOnly(val);
+        }
+    },
     mounted: function mounted() {
         this.create();
+    },
+    beforeDestroy: function beforeDestroy() {
+        this.destroy();
     },
 
     methods: {
         create: function create() {
-            if (this.types === 'inline') {
-                CKEDITOR.inline(this.id, this.config);
+            var _this = this;
+
+            if (typeof CKEDITOR === 'undefined') {
+                console.log('CKEDITOR is missing (http://ckeditor.com/)');
             } else {
-                CKEDITOR.replace(this.id, this.config);
+                if (this.types === 'inline') {
+                    CKEDITOR.inline(this.id, this.config);
+                } else {
+                    CKEDITOR.replace(this.id, this.config);
+                }
+
+                this.instance.setData(this.value);
+                this.instance.on('instanceReady', function () {
+                    _this.instance.setData(_this.value);
+                });
+                // Ckeditor change event
+                this.instance.on('change', this.onChange);
+                // Ckeditor mode html or source
+                this.instance.on('mode', this.onMode);
+                // Ckeditor blur event
+                this.instance.on('blur', function (evt) {
+                    _this.$emit('blur', evt);
+                });
+                // Ckeditor focus event
+                this.instance.on('focus', function (evt) {
+                    _this.$emit('focus', evt);
+                });
+                // Ckeditor contentDom event
+                this.instance.on('contentDom', function (evt) {
+                    _this.$emit('contentDom', evt);
+                });
+                // Ckeditor dialog definition event
+                CKEDITOR.on('dialogDefinition', function (evt) {
+                    _this.$emit('dialogDefinition', evt);
+                });
+                // Ckeditor file upload request event
+                this.instance.on('fileUploadRequest', function (evt) {
+                    _this.$emit('fileUploadRequest', evt);
+                });
+                // Ckditor file upload response event
+                this.instance.on('fileUploadResponse', function (evt) {
+                    setTimeout(function () {
+                        _this.onChange();
+                    }, 0);
+                    _this.$emit('fileUploadResponse', evt);
+                });
+                // Listen for instanceReady event
+                if (typeof this.instanceReadyCallback !== 'undefined') {
+                    this.instance.on('instanceReady', this.instanceReadyCallback);
+                }
             }
         },
+        update: function update(val) {
+            if (this.instanceValue !== val) {
+                this.instance.setData(val, { internal: false });
+            }
+        },
+        destroy: function destroy() {
+            try {
+                var editor = window['CKEDITOR'];
+                if (editor.instances) {
+                    for (var instance in editor.instances) {
+                        instance.destroy();
+                    }
+                }
+            } catch (e) {}
+        },
+        onMode: function onMode() {
+            var _this2 = this;
 
-        teste: function teste() {}
+            if (this.instance.mode === 'source') {
+                var editable = this.instance.editable();
+                editable.attachListener(editable, 'input', function () {
+                    _this2.onChange();
+                });
+            }
+        },
+        onChange: function onChange() {
+            var html = this.instance.getData();
+            if (html !== this.value) {
+                this.$emit('input', html);
+                this.instanceValue = html;
+            }
+        }
     }
 });
 
@@ -50516,7 +50617,15 @@ var render = function() {
   return _c("div", [
     _c("textarea", {
       staticClass: "form-control",
-      attrs: { rows: "3", name: _vm.name, id: _vm.id, types: _vm.types },
+      attrs: {
+        rows: "3",
+        name: _vm.name,
+        id: _vm.id,
+        types: _vm.types,
+        config: _vm.config,
+        readOnlyMode: _vm.readOnlyMode,
+        instanceReadyCallback: _vm.instanceReadyCallback
+      },
       domProps: { value: _vm.value }
     })
   ])
