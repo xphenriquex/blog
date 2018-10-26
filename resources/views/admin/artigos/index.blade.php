@@ -58,7 +58,7 @@
             </div>
             <div class="form-group">
                 <label for="data">Data</label>
-                <input type="datetime-local" class="form-control"
+                <input type="date" class="form-control"
                     id="data" name="data"
                     value="{{ old('data') }}"
                 >
@@ -96,7 +96,7 @@
             </div>
             <div class="form-group">
                 <label for="data">Data</label>
-                <input type="datetime-local" class="form-control"
+                <input type="date" class="form-control"
                     id="data" name="data" v-model="$store.state.item.data"
                 >
             </div>
