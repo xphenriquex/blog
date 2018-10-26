@@ -20,7 +20,7 @@ class Artigo extends Model
         return $this->belongsTo('App\User', 'user_id');
     }
 
-    public function listaArtigos()
+    public function listaArtigos($paginate)
     {
         $listaArtigos = DB::table('artigos')
                 ->join('users', 'users.id', '=', 'artigos.user_id')
@@ -29,7 +29,23 @@ class Artigo extends Model
                     'users.name','artigos.user_id','artigos.data'
                 )
                 ->whereNull('deleted_at')
-                ->paginate(5);
+                ->paginate($paginate);
+
+        return $listaArtigos;
+    }
+
+    public static function listaArtigosSite($paginate)
+    {
+        $listaArtigos = DB::table('artigos')
+                ->join('users', 'users.id', '=', 'artigos.user_id')
+                ->select(
+                    'artigos.id', 'artigos.titulo','artigos.descricao',
+                    'users.name as autor','artigos.user_id','artigos.data'
+                )
+                ->whereNull('deleted_at')
+                ->whereDate('data', '<=', date('Y-m-d'))
+                ->orderBy('data', 'asc')
+                ->paginate($paginate);
 
         return $listaArtigos;
     }

@@ -23,7 +23,7 @@ class ArtigoController extends Controller
         
         $artigos = new Artigo();
 
-        $listaArtigos = $artigos->listaArtigos();
+        $listaArtigos = $artigos->listaArtigos(5);
 
         return view('admin.artigos.index', compact('listaPaginas', 'listaArtigos'));
     }
