@@ -42,5 +42,6 @@ Route::group(
         Route::resource('artigos', 'ArtigoController');
         Route::resource('usuarios', 'UsuarioController');
         Route::resource('autores', 'AutorController');
+        Route::resource('adm', 'AdminController');
     }
 );
