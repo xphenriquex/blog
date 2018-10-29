@@ -48796,7 +48796,7 @@ var content = __webpack_require__(48);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(13)("43096fe0", content, false, {});
+var update = __webpack_require__(13)("fe492066", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -48974,7 +48974,7 @@ var content = __webpack_require__(54);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(13)("a4edf71e", content, false, {});
+var update = __webpack_require__(13)("54b0d2e4", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -49361,6 +49361,20 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             }
         }
     },
+    filters: {
+        formataData: function formataData(valor) {
+            if (!valor) return '';
+
+            valor = valor.toString();
+
+            if (valor.split('-').length == 3) {
+                valor = valor.split('-');
+                return valor[2] + '/' + valor[1] + '/' + valor[0];
+            }
+
+            return valor;
+        }
+    },
     computed: {
         lista: function lista() {
             var _this = this;
@@ -49512,7 +49526,9 @@ var render = function() {
             "tr",
             [
               _vm._l(item, function(i) {
-                return _c("td", { attrs: { scope: "" } }, [_vm._v(_vm._s(i))])
+                return _c("td", { attrs: { scope: "" } }, [
+                  _vm._v(_vm._s(_vm._f("formataData")(i)))
+                ])
               }),
               _vm._v(" "),
               _vm.detalhe || _vm.editar || _vm.deletar
@@ -50699,7 +50715,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    props: ['titulo', 'autor', 'data', 'descricao', 'link', 'imagem', 'largura']
+    props: ['titulo', 'autor', 'data', 'descricao', 'link', 'imagem', 'largura'],
+    filters: {
+        formataData: function formataData(valor) {
+            if (!valor) return '';
+
+            valor = valor.split('-');
+            return valor[2] + '/' + valor[1] + '/' + valor[0];
+        }
+    }
 });
 
 /***/ }),
@@ -50726,7 +50750,11 @@ var render = function() {
       _c("div", { staticClass: "card-body" }, [
         _c("p", { staticClass: "card-text" }, [
           _c("small", { staticClass: "text-muted" }, [
-            _vm._v(_vm._s(_vm.autor) + " - " + _vm._s(_vm.data))
+            _vm._v(
+              _vm._s(_vm.autor) +
+                " - " +
+                _vm._s(_vm._f("formataData")(_vm.data))
+            )
           ])
         ]),
         _vm._v(" "),
