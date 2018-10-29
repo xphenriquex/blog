@@ -11,7 +11,7 @@
                         data="{{ $item->data }}"
                         titulo="{{ $item->titulo }}"
                         descricao="{{ $item->descricao }}"
-                        link="#leia-mais"
+                        link="{{ route('artigo', [$item->id, str_slug($item->titulo)] )}}"
                         largura="18"
                         >
                     </artigo-card>
