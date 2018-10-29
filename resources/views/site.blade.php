@@ -17,12 +17,12 @@
                     </artigo-card>
                 @endforeach
             </div>
-        </painel>
-        
-        <div class="center">
-            {{ $lista }}
-        </div>
 
+            <div align="center">
+                {{ $lista }}
+            </div>
+
+        </painel>
     </pagina>
 
 
