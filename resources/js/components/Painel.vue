@@ -1,6 +1,6 @@
 <template>
     <div v-bind:class="defineBorda">
-        <div v-bind:class="defineCor">{{ titulo }}</div>
+        <div v-if="titulo" v-bind:class="defineCor">{{ titulo }}</div>
 
         <div class="card-body ">
             <slot></slot>
