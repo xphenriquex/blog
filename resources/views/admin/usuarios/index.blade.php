@@ -58,6 +58,17 @@
                 </select>
             </div>
             <div class="form-group">
+                <label for="admin">Admin</label>
+                <select class="form-control" id="admin" name="admin" >
+                    <option value="">Selecione</option>    
+                    <option 
+                        {{ ( old('admin') && old('admin') == 'S' ? 'selected' : '' ) }} 
+                        value="S">Sim</option>    
+                    <option {{ ( old('admin') && old('admin') == 'N' ? 'selected' : '' ) }} 
+                        value="N">Não</option>    
+                </select>
+            </div>
+            <div class="form-group">
                 <label for="password">Senha</label>
                 <input type="password" class="form-control" id="password" 
                     name="password" placeholder="Digite sua Senha"
@@ -92,6 +103,16 @@
             <div class="form-group">
                 <label for="autor">Autor</label>
                 <select class="form-control" id="autor" name="autor" v-model="$store.state.item.autor" >
+                    <option value="">Selecione</option>    
+                    <option  
+                        value="S">Sim</option>    
+                    <option 
+                        value="N">Não</option>    
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="admin">Admin</label>
+                <select class="form-control" id="admin" name="admin" v-model="$store.state.item.admin" >
                     <option value="">Selecione</option>    
                     <option  
                         value="S">Sim</option>    
