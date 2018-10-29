@@ -30,7 +30,7 @@ Route::get('/artigo/{id}/{titulo?}', function ($id) {
 
 Auth::routes();
 
-Route::get('admin', 'AdminController@index')->name('admin');
+Route::get('admin', 'AdminController@index')->name('admin')->middleware('can:autor');
 
 Route::group(
     [
@@ -39,9 +39,9 @@ Route::group(
         'namespace' => 'Admin'
     ], 
     function () {
-        Route::resource('artigos', 'ArtigoController');
-        Route::resource('usuarios', 'UsuarioController');
-        Route::resource('autores', 'AutorController');
-        Route::resource('adm', 'AdminController');
+        Route::resource('artigos', 'ArtigoController')->middleware('can:autor');
+        Route::resource('usuarios', 'UsuarioController')->middleware('can:eAdmin');
+        Route::resource('autores', 'AutorController')->middleware('can:eAdmin');
+        Route::resource('adm', 'AdminController')->middleware('can:eAdmin');
     }
 );
