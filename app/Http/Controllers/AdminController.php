@@ -32,8 +32,9 @@ class AdminController extends Controller
         $qtdArtigos = Artigo::count();
         $qtdUsuarios = User::count();
         $qtdAutores = User::where('autor','=','S')->count();
+        $qtdAdmins = User::where('admin','=','S')->count();
         
 
-        return view('admin', compact('listaPaginas', 'qtdArtigos', 'qtdUsuarios', 'qtdAutores'));
+        return view('admin', compact('listaPaginas', 'qtdArtigos', 'qtdUsuarios', 'qtdAutores', 'qtdAdmins'));
     }
 }
