@@ -19,7 +19,10 @@
             <tabela-lista 
                 v-bind:titulos="['#', 'Título', 'Descrição', 'Autor', 'Data']"
                 v-bind:itens="{{ json_encode($listaArtigos) }}"    
-                criar="#criar" detalhe="/admin/artigos/" editar="/admin/artigos/" deletar="/admin/artigos/" token="{{ csrf_token() }}"
+                criar="#criar" detalhe="/admin/artigos/" 
+                editar="/admin/artigos/" 
+                deletar="/admin/artigos/" 
+                token="{{ csrf_token() }}"
                 ordem="asc" ordemcolum="2"
                 modal="sim"
             >
@@ -92,6 +95,7 @@
                     id="editConteudo"
                     types=""
                     v-model="$store.state.item.conteudo"
+                    
                     ></ckeditor>
             </div>
             <div class="form-group">
@@ -109,7 +113,14 @@
 
     <modal nome="detalhe" v-bind:titulo="$store.state.item.titulo">
         <p> @{{ $store.state.item.descricao }} </p>
-        <p> @{{ $store.state.item.conteudo }} </p>
+        <ckeditor 
+            name="conteudo"
+            id="detalConteudo"
+            types=""
+            v-model="$store.state.item.conteudo"
+            disabled="true"    
+            >
+        </ckeditor>
     </modal>
 @endsection
 
