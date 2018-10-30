@@ -8,7 +8,7 @@
             :value="value"
             :types="types"
             :config="config"
-            :readOnlyMode="readOnlyMode"
+            :disabled="disabled"
             :instanceReadyCallback="instanceReadyCallback"
             >
         </textarea>
@@ -19,7 +19,7 @@
 
 export default {
     name: 'VueCkeditor',
-    props: ['name', 'value', 'id', 'types', 'instanceReadyCallback' ,'readOnlyMode'],
+    props: ['name', 'value', 'id', 'types', 'instanceReadyCallback' ,'disabled'],
     data() {
         return {
             instanceValue: '',
