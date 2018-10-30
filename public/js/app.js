@@ -50490,7 +50490,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: 'VueCkeditor',
-    props: ['name', 'value', 'id', 'types', 'instanceReadyCallback', 'readOnlyMode'],
+    props: ['name', 'value', 'id', 'types', 'instanceReadyCallback', 'disabled'],
     data: function data() {
         return {
             instanceValue: '',
@@ -50631,7 +50631,7 @@ var render = function() {
         id: _vm.id,
         types: _vm.types,
         config: _vm.config,
-        readOnlyMode: _vm.readOnlyMode,
+        disabled: _vm.disabled,
         instanceReadyCallback: _vm.instanceReadyCallback
       },
       domProps: { value: _vm.value }
