@@ -9,8 +9,8 @@
                     <artigo-card
                         autor="{{ $item->autor }}"
                         data="{{ $item->data }}"
-                        titulo="{{ $item->titulo }}"
-                        descricao="{{ $item->descricao }}"
+                        titulo="{{ str_limit($item->titulo, 30, "...") }}"
+                        descricao="{{ str_limit($item->descricao, 40, "...") }}"
                         link="{{ route('artigo', [$item->id, str_slug($item->titulo)] )}}"
                         largura="18"
                         >
