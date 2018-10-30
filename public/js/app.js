@@ -50714,10 +50714,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    props: ['titulo', 'autor', 'data', 'descricao', 'link', 'imagem', 'largura'],
+    props: ['titulo', 'autor', 'data', 'descricao', 'link', 'imagem', 'sm', 'md'],
     filters: {
         formataData: function formataData(valor) {
             if (!valor) return '';
@@ -50738,7 +50737,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "card", style: "width: " + (_vm.largura || "18") + "rem;" },
+    { class: "card col-sm-" + (_vm.sm || "3") + " col-md-" + (_vm.md || "4") },
     [
       _c("img", {
         staticClass: "card-img-top",

@@ -12,13 +12,14 @@
                         titulo="{{ str_limit($item->titulo, 30, "...") }}"
                         descricao="{{ str_limit($item->descricao, 40, "...") }}"
                         link="{{ route('artigo', [$item->id, str_slug($item->titulo)] )}}"
-                        largura="18"
+                        sm="3"
+                        md="4"
                         >
                     </artigo-card>
                 @endforeach
             </div>
-
-            <div align="center">
+            <br>
+            <div class="mx-auto" style="width: 200px;">
                 {{ $lista }}
             </div>
 
