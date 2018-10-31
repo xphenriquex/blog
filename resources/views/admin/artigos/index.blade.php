@@ -23,7 +23,7 @@
                 editar="/admin/artigos/" 
                 deletar="/admin/artigos/" 
                 token="{{ csrf_token() }}"
-                ordem="asc" ordemcolum="2"
+                ordem="DESC" ordemcolum="0"
                 modal="sim"
             >
             </tabela-lista>
