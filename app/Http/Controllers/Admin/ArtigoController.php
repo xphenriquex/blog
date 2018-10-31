@@ -60,9 +60,17 @@ class ArtigoController extends Controller
                 ->withErrors($validacao)
                 ->withInput();
         }
+        
+        $user = auth()->user();
+        // $artigos = Artigo::find($user->id);
+        
 
-        Artigo::create($dados);
+        // dd($user);
+        // Artigo::create(['user_id' => $user->id]);
+
+        $user->artigos()->create($dados);
         return redirect()->back();
+        
     }
 
     /**
@@ -110,8 +118,10 @@ class ArtigoController extends Controller
                 ->withErrors($validacao)
                 ->withInput();
         }
-
-        Artigo::find($id)->update($dados);
+        $artigos = new Artigo();
+        $user = auth()->user();
+        
+        $user->artigos()->find($id)->update($dados);
         return redirect()->back();
     }
 
