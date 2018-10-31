@@ -10,7 +10,7 @@ class Artigo extends Model
     use SoftDeletes;
 
     protected $fillable = [
-        'titulo', 'descricao', 'conteudo', 'data',
+        'titulo', 'descricao', 'conteudo', 'data'
     ];
 
     protected $dates = ['deleted_at'];
@@ -21,15 +21,33 @@ class Artigo extends Model
     }
 
     public function listaArtigos($paginate)
-    {
-        $listaArtigos = DB::table('artigos')
+    {   
+        $user = auth()->user();
+        
+        if($user->admin == "S"){
+            $listaArtigos = DB::table('artigos')
                 ->join('users', 'users.id', '=', 'artigos.user_id')
                 ->select(
                     'artigos.id', 'artigos.titulo','artigos.descricao',
                     'users.name','artigos.user_id','artigos.data'
                 )
                 ->whereNull('deleted_at')
+                ->orderBy('artigos.id', 'DESC')
                 ->paginate($paginate);
+        }else{
+            $listaArtigos = DB::table('artigos')
+                ->join('users', 'users.id', '=', 'artigos.user_id')
+                ->select(
+                    'artigos.id', 'artigos.titulo','artigos.descricao',
+                    'users.name','artigos.user_id','artigos.data'
+                )
+                ->whereNull('deleted_at')
+                ->where('artigos.user_id', '=', $user->id)
+                ->orderBy('artigos.id', 'DESC')
+                ->paginate($paginate);
+        }
+
+        
 
         return $listaArtigos;
     }
